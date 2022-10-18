@@ -1,36 +1,49 @@
 import { promises as fs } from 'fs'
-import ReactDOM from 'react-dom/cjs/react-dom-server.node.production.min'
+import ReactDOM from 'react-dom/cjs/react-dom-server.node.production.min.js'
 import { fileURLToPath, pathToFileURL } from 'url'
-import yargs from 'yargs'
 
-import { ensure } from './utilities/utils'
+import { templatesUrl, rootDir, templatesDir, outputDir } from './config/index.js'
 
-const args = yargs(process.argv.slice(2)).argv
-const templatesUrl = pathToFileURL(`${process.cwd()}/${args.t ?? './templates/'}`)
-const outputUrl = pathToFileURL(`${process.cwd()}/${args.o ?? './output/'}`)
+import { layout, header, footer, aboutTenera, bottomText } from './shared/index.js'
 
-const files = await fs.readdir(fileURLToPath(templatesUrl))
-await ensure(fileURLToPath(outputUrl))
-
-for (const file of files) {
-  if (/^_/.test(file)) continue
-
-  const outfile = new URL(file.replace(/\.js$/, '.html'), outputUrl)
-  const path = new URL(file, templatesUrl)
-
-  const { title: pageTitle, body: pageBody, layout: pageLayout, header, footer } = await import(path)
-  const body = typeof pageBody === 'function' ? await pageBody() : pageBody
-
-  const { layout } = await import(new URL(pageLayout ?? '_layout.js', templatesUrl))
-  let output
-  try {
-    console.log(`--> rendering...`, footer)
-
-    output = ReactDOM.renderToString(layout({ title: pageTitle, header, body, footer }))
-
-    // output = ReactDOMc.render(layout({ title: pageTitle, body }))
-  } catch (err) {
-    console.error(`--> Error rendering:: `, err)
+const importTemplateComponents = async templateName => {
+  const currentTemplateDir = `${rootDir}/${templatesDir}/${templateName}`
+  const files = await fs.readdir(pathToFileURL(currentTemplateDir))
+  const map = {}
+  for (const file of files) {
+    map[file.replace(/\.js$/, '')] = await import(pathToFileURL(`${currentTemplateDir}/${file}`))
   }
-  await fs.writeFile(fileURLToPath(outfile), output)
+
+  return {
+    title: map.title?.title,
+    body: map.body?.body,
+  }
+}
+
+const loopFilesInTemplate = async templateName => {
+  const currentOutputDir = `${rootDir}/${outputDir}/${templateName}`
+
+  const { title, body } = await importTemplateComponents(templateName)
+
+  if (!title) {
+    return
+  }
+
+  const output = ReactDOM.renderToString(layout({ header, title, body, aboutTenera, bottomText, footer }))
+
+  await fs.writeFile(pathToFileURL(`${currentOutputDir}.html`), output)
+}
+
+const loopTemplates = async () => {
+  const templateFolders = await fs.readdir(fileURLToPath(templatesUrl))
+
+  for (const templateFolder of templateFolders) {
+    await loopFilesInTemplate(templateFolder)
+  }
+}
+
+try {
+  loopTemplates()
+} catch (e) {
+  console.error('Error generating templates:  ', e)
 }

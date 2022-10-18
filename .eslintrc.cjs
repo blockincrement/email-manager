@@ -15,6 +15,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-await-in-loop': 'off',
     'no-continue': 'off',
-    'no-restricted-syntax': 'off'
+    'no-restricted-syntax': 'off',
+    'import/extensions': 'off',
+    'no-plusplus': 'off',
   }
 };

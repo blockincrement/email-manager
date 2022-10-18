@@ -1,6 +1,6 @@
 import { html } from 'htm/react/index.mjs'
 
-const layout = data => html`
+export const layout = data => html`
   <html>
     <title>${data.title}</title>
     <head> </head>
@@ -50,29 +50,8 @@ const layout = data => html`
           </table>
         </div>
 
-        ${data.wasIstTenera}
-        <div
-          style=${{ width: '100%', minWidth: '280px', maxWidth: '600px', backgroundColor: '#ffffff', margin: '0 auto' }}
-        >
-          <div className="section text" style=${{ padding: '10px' }}>
-            <table width="100%">
-              <tbody>
-                <tr>
-                  <td align="left" className>
-                    <p style=${{ msoLineHeightRule: 'exactly' }}>
-                      Leider können Sie auf diese E-Mail nicht antworten. Bei Fragen oder technischen
-                      Problemen&nbsp;wenden Sie sich bitte direkt an Ihre/n AnsprechpartnerIn oder an unser Service Team
-                      via service@tenera.io.<br />
-                      <br />
-                      <br />
-                      Viele Grüße aus Berlin
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        ${data.wasIstTenera} ${data.bottomText}
+
         <div className="hse-section" id="section_1616761784046" style=${{ paddingLeft: '10px', paddingRight: '10px' }}>
           <!--[if !((mso)|(IE))]> -->
           <div
@@ -158,5 +137,3 @@ const layout = data => html`
     </body>
   </html>
 `
-
-export default layout

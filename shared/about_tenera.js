@@ -1,6 +1,6 @@
 import { html } from 'htm/react/index.mjs'
 
-export default html`
+export const aboutTenera = html`
   <div style=${{ width: '100%', minWidth: '280px', maxWidth: '600px', backgroundColor: '#ffffff', margin: '0 auto' }}>
     <div className="section text" style=${{ padding: '10px' }}>
       <table width="100%">
