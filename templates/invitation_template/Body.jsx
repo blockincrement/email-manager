@@ -9,7 +9,7 @@ const Body = () => (
     </p>
     <p>{`{{{message}}}`}</p>
     <a
-      href
+      href="{{acceptInvitationURL}}"
       style={{
         borderRadius: '5px',
         backgroundColor: '#059E9B',
@@ -24,9 +24,10 @@ const Body = () => (
         float: 'left',
       }}
       target="_blank"
+      rel="noreferrer"
     >
       <font color="#ffffff">
-        <b>{`{{#equals locale &quot;de&quot;}}Einladung annehmen{{/equals}} {{#equals locale  "en"}}Accept invite{{/equals}} `}</b>
+        <b>{`{{#equals locale "de"}}Einladung annehmen{{/equals}} {{#equals locale  ${'"'}en"}}Accept invite{{/equals}} `}</b>
       </font>
     </a>
     <br />

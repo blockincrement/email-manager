@@ -3,6 +3,8 @@ import * as React from 'react'
 import { renderToString } from 'react-dom/server'
 import { fileURLToPath, pathToFileURL } from 'url'
 import Handlebars from 'handlebars'
+import prettier from 'prettier'
+
 import Layout from './shared/Layout'
 import Header from './shared/Header'
 import Footer from './shared/Footer'
@@ -36,7 +38,7 @@ const loopFilesInTemplate = async templateName => {
     return
   }
 
-  const output = renderToString(
+  const htmlRaw = renderToString(
     <Layout
       title={<Title />}
       header={<Header />}
@@ -48,10 +50,13 @@ const loopFilesInTemplate = async templateName => {
   )
 
   try {
-    // validate that generated html is valid Handlebars template and can work in the SendGrid
-    Handlebars.precompile(output)
+    const html = htmlRaw.replace(/&quot;/g, '"')
+    const formattedCode = prettier.format(html, { parser: 'html' })
 
-    await fs.writeFile(pathToFileURL(`${currentOutputDir}.html`), output)
+    // validate that generated html is valid Handlebars template and can work in the SendGrid
+    Handlebars.precompile(formattedCode)
+
+    await fs.writeFile(pathToFileURL(`${currentOutputDir}.hbs`), formattedCode)
   } catch (e) {
     console.error('Invalid Handlebar Template:  ', e)
   }

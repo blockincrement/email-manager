@@ -120,9 +120,9 @@ Layout.propTypes = {
   title: PropTypes.node,
   header: PropTypes.node,
   body: PropTypes.node,
-  aboutTenera: PropTypes,
-  bottomText: PropTypes,
-  footer: PropTypes,
+  aboutTenera: PropTypes.node,
+  bottomText: PropTypes.node,
+  footer: PropTypes.node,
 }
 
 Layout.defaultProps = {

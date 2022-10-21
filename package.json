@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "handlebars": "^4.7.7",
+    "prettier": "2.7.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.2",
@@ -35,7 +36,6 @@
     "eslint-plugin-prefer-arrow-functions": "^3.1.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "http-server": "^0.12.3",
-    "prettier": "2.7.1"
+    "http-server": "^0.12.3"
   }
 }
