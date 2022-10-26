@@ -58,7 +58,7 @@ const loopFilesInTemplate = async templateName => {
 
     await fs.writeFile(pathToFileURL(`${currentOutputDir}.hbs`), formattedCode)
   } catch (e) {
-    console.error('Invalid Handlebar Template:  ', e)
+    console.error(`Invalid Handlebar Template ${templateName}:`, e)
   }
 }
 
@@ -68,6 +68,10 @@ const loopTemplates = async () => {
   for (const templateFolder of templateFolders) {
     await loopFilesInTemplate(templateFolder)
   }
+
+  console.log(`Succesfully generated ${templateFolders.length} templates: 
+      \r   - ${templateFolders.join(',\n   - ')}
+  `)
 }
 
 try {

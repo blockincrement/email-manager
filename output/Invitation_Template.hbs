@@ -83,11 +83,15 @@
           <tbody>
             <div>
               <p>
-                {{#if inviterFirstName}} {{#if inviterLastName}} {{#if
-                inviterPosition}} {{#if inviterCompanyName}} {{#equals locale
-                "de"}}Hallo{{/equals}} {{#equals locale "en"}}Hello{{/equals}}
-                {{inviterFirstName}} {{inviterLastName}} {{inviterPosition}} ,
-                {{inviterCompanyName}} {{/if}} {{/if}} {{/if}} {{/if}}
+                {{#if (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#if
+                (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
+                inviterFirstName}}<!-- -->{{inviterFirstName}}<!-- -->{{/if}}<!-- -->{{#if
+                inviterLastName}}<!-- -->
+                {{inviterLastName}}<!-- -->{{/if}}<!-- -->
+                <!-- -->{{#if inviterPosition}}<!-- -->
+                {{inviterPosition}}<!-- -->{{/if}}<!-- -->
+                <!-- -->{{#if inviterCompanyName}}<!-- -->,
+                {{inviterCompanyName}}<!-- -->{{/if}}
               </p>
               <p>{{{message}}}</p>
               <a
@@ -108,10 +112,8 @@
                 target="_blank"
                 rel="noreferrer"
                 ><font color="#ffffff"
-                  ><b
-                    >{{#equals locale "de"}}Einladung annehmen{{/equals}}
-                    {{#equals locale "en"}}Accept invite{{/equals}}
-                  </b></font
+                  >{{#if (equals locale "de")}}<!-- -->Einladung annehmen<!-- -->{{/if}}<!-- -->{{#if
+                  (equals locale "en")}}<!-- -->Accept invite<!-- -->{{/if}}</font
                 ></a
               ><br /><br /><br />
             </div>
