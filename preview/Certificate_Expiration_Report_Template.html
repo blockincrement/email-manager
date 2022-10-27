@@ -1,11 +1,6 @@
 <html data-reactroot="">
   <title>
-    {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit <!-- -->{{#if
-    inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-    wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale "en")}}<!--
-    -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!--
-    -->{{/if}}<!-- --> is inviting you to collaborate on the Tenera
-    platform.<!-- -->{{/if}}</title
+    Abgelaufene oder bald ablaufende Bescheinigungen von <!-- --><!-- -->SC Company Test Name<!-- --></title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -60,11 +55,8 @@
                     font-family: Gilroy, Lato, Tahoma, sans-serif;
                   "
                 >
-                  {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit
-                  <!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale
-                  "en")}}<!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  is inviting you to collaborate on the Tenera platform.<!-- -->{{/if}}
+                  Abgelaufene oder bald ablaufende Bescheinigungen von
+                  <!-- --><!-- -->SC Company Test Name<!-- -->
                 </p>
               </td>
             </tr>
@@ -87,18 +79,21 @@
           <tbody>
             <div>
               <p>
-                {{#if (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#if
-                (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
-                inviterFirstName}}<!-- -->{{inviterFirstName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterLastName}}<!-- -->
-                {{inviterLastName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterPosition}}<!-- -->
-                {{inviterPosition}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterCompanyName}}<!-- -->, {{inviterCompanyName}}<!-- -->{{/if}}
+                Hallo
+                <!-- --><!-- -->GC bau<!-- --><!-- -->,
               </p>
-              <p>{{{message}}}</p>
+              <p>
+                einige Bescheinigungen von
+                <!-- --><!-- -->SC Company Test Name<!-- --><!-- -->
+                laufen demnächst ab oder sind bereits abgelaufen.<br />Eine
+                Übersicht über den Status aller Bescheingungen können Sie direkt
+                im Profil von<!-- -->
+                <!-- --><!-- -->SC Company Test Name<!-- --><!-- -->
+                einsehen, indem Sie auf “Bescheingungen einsehen” klicken. Unten
+                sehen Sie bereits eine Liste der betroffenen Bescheinigungen.
+              </p>
               <a
-                href="{{acceptInvitationURL}}"
+                href="https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?contactCompanyActiveTab=certificates"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -114,41 +109,139 @@
                 "
                 target="_blank"
                 rel="noreferrer"
-                ><font color="#ffffff"
-                  >{{#if (equals locale "de")}}<!-- -->Einladung annehmen<!-- -->{{/if}}<!-- -->{{#if
-                  (equals locale "en")}}<!-- -->Accept invite<!-- -->{{/if}}</font
-                ></a
+                ><font color="#ffffff">Bescheinigungen einsehen</font></a
               ><br /><br /><br />
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>Abgelaufene Bescheinigungen</h4>
+                          <ul style="list-style-type: none">
+                            <li>
+                              Lief
+                              <!-- --><!-- -->vor 1 Wochen<!-- --><!-- -->
+                              ab
+                              <ul>
+                                <li>
+                                  <!-- -->Bescheinigung §11 UStG.<!-- -->
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificateId=6fd41f71-cf9e-404f-8bdf-b21090ac8cc9&amp;contactCompanyActiveTab=certificates"
+                                        style="color: black"
+                                        ><!-- -->test2.pdf<!-- --></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                                                    <ul style="list-style-type: none">
+                            <li>
+                              Lief
+                              <!-- --><!-- -->vor 4 Tagen<!-- --><!-- -->
+                              ab
+                              <ul>
+                                <li>
+                                  <!-- -->Bescheinigung §12 UStG.<!-- -->
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificateId=6fd41f71-cf9e-404f-8bdf-b21090ac8cc9&amp;contactCompanyActiveTab=certificates"
+                                        style="color: black"
+                                        ><!-- -->test1.pdf<!-- --></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>Abgelaufene Bescheinigungen</h4>
+                          <ul style="list-style-type: none">
+                            <li>
+                              Läuft
+                              <!-- --><!-- -->in 3 Wochen<!-- --><!-- -->
+                              ab
+                              <ul>
+                                <li>
+                                  <!-- -->Bescheinigung §14 UStG.<!-- -->
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="https://platform.dev.tenera.app/contacts/6284f5e4-fd2f-4988-8aac-c55f0d272982/?certificateId=64c7-4b8b-8789-89955fe15c75&amp;contactCompanyActiveTab=certificates"
+                                        style="color: black"
+                                        ><!-- -->test4.pdf<!-- --></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                                                    <ul style="list-style-type: none">
+                            <li>
+                              Läuft
+                              <!-- --><!-- -->in 5 Tagen<!-- --><!-- -->
+                              ab
+                              <ul>
+                                <li>
+                                  <!-- -->Bescheinigung §16 UStG.<!-- -->
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificateId=6fd41f71-cf9e-404f-8bdf-b21090ac8cc9&amp;contactCompanyActiveTab=certificates"
+                                        style="color: black"
+                                        ><!-- -->test3.pdf<!-- --></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </tbody>
         </table>
-      </div>
-      <div
-        style="
-          width: 100%;
-          min-width: 280px;
-          max-width: 600px;
-          background-color: #ffffff;
-          margin: 0 auto;
-        "
-      >
-        <div class="section text" style="padding: 10px">
-          <table width="100%">
-            <tbody>
-              <tr>
-                <td align="left">
-                  <h4>Was ist Tenera?</h4>
-                  Tenera verbindet ausschreibende Auftraggeber mit
-                  Auftragnehmern. Alle notwendigen Informationen zu
-                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
-                  Subunternehmer können auf Tenera mit Generalunternehmern an
-                  Projekten in einem zentralisierten System zusammenarbeiten und
-                  kommunizieren.<br />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
       <div
         style="

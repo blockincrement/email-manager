@@ -1,11 +1,7 @@
 <html data-reactroot="">
   <title>
-    {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit <!-- -->{{#if
-    inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-    wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale "en")}}<!--
-    -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!--
-    -->{{/if}}<!-- --> is inviting you to collaborate on the Tenera
-    platform.<!-- -->{{/if}}</title
+    {{requesterOrganizationName}} bittet Sie, eine neue Version von
+    {{numberOfCertificatesRequested}} Bescheinigung(en) bereitzustellen.</title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -60,11 +56,9 @@
                     font-family: Gilroy, Lato, Tahoma, sans-serif;
                   "
                 >
-                  {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit
-                  <!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale
-                  "en")}}<!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  is inviting you to collaborate on the Tenera platform.<!-- -->{{/if}}
+                  {{requesterOrganizationName}} bittet Sie, eine neue Version
+                  von {{numberOfCertificatesRequested}} Bescheinigung(en)
+                  bereitzustellen.
                 </p>
               </td>
             </tr>
@@ -86,19 +80,9 @@
         <table width="100%">
           <tbody>
             <div>
-              <p>
-                {{#if (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#if
-                (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
-                inviterFirstName}}<!-- -->{{inviterFirstName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterLastName}}<!-- -->
-                {{inviterLastName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterPosition}}<!-- -->
-                {{inviterPosition}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterCompanyName}}<!-- -->, {{inviterCompanyName}}<!-- -->{{/if}}
-              </p>
-              <p>{{{message}}}</p>
-              <a
-                href="{{acceptInvitationURL}}"
+              <p>{{#if message}}<!-- -->{{message}}<!-- -->{{/if}}</p>
+              {{#if certificateSubmissionUrl}}<a
+                href="{{certificateSubmissionUrl}}"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -114,41 +98,70 @@
                 "
                 target="_blank"
                 rel="noreferrer"
-                ><font color="#ffffff"
-                  >{{#if (equals locale "de")}}<!-- -->Einladung annehmen<!-- -->{{/if}}<!-- -->{{#if
-                  (equals locale "en")}}<!-- -->Accept invite<!-- -->{{/if}}</font
-                ></a
-              ><br /><br /><br />
+                ><font color="#ffffff">Bescheinigungen hochladen</font></a
+              >{{/if}}<br /><br />
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>Zu aktualisierende Bescheinigungen</h4>
+                          <ul>
+                            {{#each certificateCountAndNames}}
+                            <li>
+                              {{#if this.certificateTypeName}}<!-- -->{{this.certificateTypeName}}<!-- -->{{/if}}
+                              <ul>
+                                <li>
+                                  {{#if this.certificateName}}<!-- -->{{this.certificateName}}<!-- -->{{/if}}
+                                </li>
+                              </ul>
+                            </li>
+                            {{/each}}
+                          </ul>
+                          <br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4></h4>
+                          {{#if requesterName}}<!-- -->{{requesterName}}<!-- -->{{/if}}<br />{{#if
+                          requesterPosition}}<!-- -->{{requesterPosition}}<!-- -->{{/if}}<br />{{#if
+                          requesterPhone}}<!-- -->{{requesterPhone}}<!-- -->{{/if}}<br />{{#if
+                          requesterEmail}}<!-- -->{{requesterEmail}}<!-- -->{{/if}}<br /><br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </tbody>
         </table>
-      </div>
-      <div
-        style="
-          width: 100%;
-          min-width: 280px;
-          max-width: 600px;
-          background-color: #ffffff;
-          margin: 0 auto;
-        "
-      >
-        <div class="section text" style="padding: 10px">
-          <table width="100%">
-            <tbody>
-              <tr>
-                <td align="left">
-                  <h4>Was ist Tenera?</h4>
-                  Tenera verbindet ausschreibende Auftraggeber mit
-                  Auftragnehmern. Alle notwendigen Informationen zu
-                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
-                  Subunternehmer können auf Tenera mit Generalunternehmern an
-                  Projekten in einem zentralisierten System zusammenarbeiten und
-                  kommunizieren.<br />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
       <div
         style="

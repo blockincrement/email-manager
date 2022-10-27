@@ -1,0 +1,24 @@
+{
+  "locale": "de",
+  "requesterOrganizationName": "Generalbau GmbH",
+  "certificateSubmissionUrl": "https://platform.dev.tenera.app/certificate-submission/?token=bWscf7s7M1lx2nGZM01otNk1Y6aW5TMuzL6rr11SM9anRjKaz5H4Abl6DzLJ8EQy",
+  "message": "Lorem ipsum",
+  "numberOfCertificatesRequested": "2",
+  "certificateCountAndNames": [
+    {
+      "id": "1234",
+      "certificateName": "Hans.pdf",
+      "certificateTypeName": "Mindestlohnbescheinigung"
+
+    },
+    {
+      "id": "5678",
+      "certificateName": "Hans_2.pdf",
+      "certificateTypeName": "Mindestlohnbescheinigung"
+    }
+  ],
+  "requesterName": "Marlene Schmidt",
+  "requesterPosition": "Bauleitung",
+  "requesterPhone": "+49812345678-12",
+  "requesterEmail": "marleneschmidt@generalbau.com"
+}

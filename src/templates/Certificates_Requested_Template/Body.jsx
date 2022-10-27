@@ -14,34 +14,30 @@ const Body = () => (
         <tbody>
           <div>
             <p>
-              Guten Tag,
-              <br />
-              <Variable name="gcOrganizationName" />
-              hat einige Ihrer Bescheinigungen freigegeben.
+              <Variable name="message" />
             </p>
-            <IfVariable name="approvedCertificateProposals">
-              <ButtonConfirm
-                title="Bescheinigungen einsehen"
-                hrefValue="{{approvedCertificateProposals.[0].certificateProposalUrl}}"
-              />
-            </IfVariable>
+
+            <ButtonConfirm title="Bescheinigungen hochladen" hrefValue="{{certificateSubmissionUrl}}" />
             <br />
             <br />
-            <Paragraph title="Kürzlich freigegebene Bescheinigungen">
+            <Paragraph title="Angefragte Bescheinigungen">
               <ul>
-                <Each iterator="approvedCertificateProposals">
+                <Each iterator="certificateCountAndTypes">
                   <li>
-                    <a
-                      href="{{this.certificateProposalUrl}}"
-                      style={{
-                        color: 'black',
-                      }}
-                    >
-                      <Variable name="this.filename" />
-                    </a>
+                    <Variable name="this.name" />
                   </li>
                 </Each>
               </ul>
+            </Paragraph>
+            <Paragraph>
+              <Variable name="requesterName" />
+              <br />
+              <Variable name="requesterPosition" />
+              <br />
+              <Variable name="requesterPhone" />
+              <br />
+              <Variable name="requesterEmail" />
+              <br />
             </Paragraph>
           </div>
         </tbody>

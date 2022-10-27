@@ -8,8 +8,6 @@ import prettier from 'prettier'
 import Layout from './src/shared/Layout'
 import Header from './src/shared/Header'
 import Footer from './src/shared/Footer'
-import AboutTenera from './src/shared/AboutTenera'
-import BottomText from './src/shared/BottomText'
 
 import { templatesUrl, rootDir, outputDir, previewDir } from './src/config'
 
@@ -18,7 +16,6 @@ Handlebars.registerHelper('equals', (arg1, arg2) => arg1 === arg2)
 const importTestData = async templateName => {
   try {
     const testData = await import(`./src/templates/${templateName}/testData.json`)
-
     return {
       testData,
     }
@@ -31,7 +28,6 @@ const importTemplateComponents = async templateName => {
   try {
     const Title = await import(`./src/templates/${templateName}/Title`)
     const Body = await import(`./src/templates/${templateName}/Body`)
-
     return {
       Title: Title?.default,
       Body: Body?.default,
@@ -53,16 +49,7 @@ const loopFilesInTemplate = async templateName => {
 
   const { testData } = await importTestData(templateName)
 
-  const htmlRaw = renderToString(
-    <Layout
-      title={<Title />}
-      header={<Header />}
-      body={<Body />}
-      aboutTenera={<AboutTenera />}
-      bottomText={<BottomText />}
-      footer={<Footer />}
-    />,
-  )
+  const htmlRaw = renderToString(<Layout title={<Title />} header={<Header />} body={<Body />} footer={<Footer />} />)
 
   try {
     const html = htmlRaw.replace(/&quot;/g, '"')

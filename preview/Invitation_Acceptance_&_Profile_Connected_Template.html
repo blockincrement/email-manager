@@ -1,11 +1,8 @@
 <html data-reactroot="">
   <title>
-    {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit <!-- -->{{#if
-    inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-    wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale "en")}}<!--
-    -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!--
-    -->{{/if}}<!-- --> is inviting you to collaborate on the Tenera
-    platform.<!-- -->{{/if}}</title
+    <!-- --><!--
+    -->Romer Elektro&#x27;s GMB<!-- --><!-- --> hat Ihre Einladung zur
+    Vernetzung angenommen.<!-- --><!-- --></title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -60,11 +57,8 @@
                     font-family: Gilroy, Lato, Tahoma, sans-serif;
                   "
                 >
-                  {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit
-                  <!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale
-                  "en")}}<!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  is inviting you to collaborate on the Tenera platform.<!-- -->{{/if}}
+                  <!-- --><!-- -->Romer Elektro&#x27;s GMB<!-- --><!-- -->
+                  hat Ihre Einladung zur Vernetzung angenommen.<!-- --><!-- -->
                 </p>
               </td>
             </tr>
@@ -86,19 +80,25 @@
         <table width="100%">
           <tbody>
             <div>
+<!-- -->
               <p>
-                {{#if (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#if
-                (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
-                inviterFirstName}}<!-- -->{{inviterFirstName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterLastName}}<!-- -->
-                {{inviterLastName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterPosition}}<!-- -->
-                {{inviterPosition}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterCompanyName}}<!-- -->, {{inviterCompanyName}}<!-- -->{{/if}}
+                Hallo
+                <!-- --><!-- -->Mark<!-- --><!-- -->
+                <!-- --><!-- -->Mustermann<!-- --><!-- -->,
               </p>
-              <p>{{{message}}}</p>
+              <p>
+                Sie sind jetzt auf Tenera mit
+                <!-- --><!-- -->Romer Elektro&#x27;s GMB<!-- --><!-- -->
+                vernetzt.<!-- --><!-- -->Romer Elektro&#x27;s GMB<!-- --><!-- -->
+                hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
+                angenommen. Durch die Vernetzung wird Ihre Kommunikation und
+                Zusammenarbeit in Projekten effizienter und transparenter. Indem
+                Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum
+                Profil von<!-- -->
+                <!-- --><!-- -->Romer Elektro&#x27;s GMB<!-- --><!-- -->.
+              </p>
               <a
-                href="{{acceptInvitationURL}}"
+                href="http://localhost:8080"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -115,10 +115,9 @@
                 target="_blank"
                 rel="noreferrer"
                 ><font color="#ffffff"
-                  >{{#if (equals locale "de")}}<!-- -->Einladung annehmen<!-- -->{{/if}}<!-- -->{{#if
-                  (equals locale "en")}}<!-- -->Accept invite<!-- -->{{/if}}</font
+                  ><!-- -->Profil ansehen<!-- --><!-- --></font
                 ></a
-              ><br /><br /><br />
+              ><br />
             </div>
           </tbody>
         </table>

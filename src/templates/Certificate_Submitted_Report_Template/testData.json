@@ -1,0 +1,17 @@
+{
+  "companyName": "[SC Name]",
+  "certificateProposals": [
+    {
+      "filename": "test.pdf",
+      "certificateProposalUrl": "https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificate-proposal-submission=bc422952-b8ce-4fcb-8ba6-9c9e43a91977&contactCompanyActiveTab=certificates"
+    },
+    {
+      "filename": "test1.pdf",
+      "certificateProposalUrl": "https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificate-proposal-submission=bc422952-b8ce-4fcb-8ba6-9c9e43a91977&contactCompanyActiveTab=certificates"
+    },
+    {
+      "filename": "test2.pdf",
+      "certificateProposalUrl": "https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificate-proposal-submission=bc422952-b8ce-4fcb-8ba6-9c9e43a91977&contactCompanyActiveTab=certificates"
+    }
+  ]
+}

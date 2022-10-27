@@ -1,11 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Layout = ({ title, header, body, aboutTenera, bottomText, footer }) => (
+const fontStyle = {
+  fontFamily: 'Gilroy, Lato, Tahoma, sans-serif',
+}
+const Layout = ({ title, header, body, footer }) => (
   <html>
     <title>{title}</title>
     <head />
-    <body>
+    <body
+      style={{
+        ...fontStyle,
+      }}
+    >
       {header}
       <div
         style={{ width: '100%', minWidth: '280px', maxWidth: '600px', backgroundColor: '#ffffff', margin: '0 auto' }}
@@ -18,10 +25,10 @@ const Layout = ({ title, header, body, aboutTenera, bottomText, footer }) => (
                   <p
                     style={{
                       fontSize: '16px',
-                      fontFamily: 'Lato, Tahoma, sans-serif',
                       lineHeight: '175%',
                       fontWeight: 'bold',
                       textAlign: 'center',
+                      ...fontStyle,
                     }}
                   >
                     {title}
@@ -43,12 +50,7 @@ const Layout = ({ title, header, body, aboutTenera, bottomText, footer }) => (
           padding: '20px 0 0 0',
         }}
       >
-        <div className="section intro" style={{ padding: '10px' }}>
-          <table width="100%">
-            <tbody>{body}</tbody>
-          </table>
-        </div>
-        {aboutTenera} {bottomText}
+        {body}
         <div className="hse-section" id="section_1616761784046" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
           {/* [if !((mso)|(IE))]> */}
           <div
@@ -120,8 +122,6 @@ Layout.propTypes = {
   title: PropTypes.node,
   header: PropTypes.node,
   body: PropTypes.node,
-  aboutTenera: PropTypes.node,
-  bottomText: PropTypes.node,
   footer: PropTypes.node,
 }
 
@@ -129,8 +129,6 @@ Layout.defaultProps = {
   title: '',
   header: '',
   body: '',
-  aboutTenera: '',
-  bottomText: '',
   footer: '',
 }
 

@@ -1,0 +1,40 @@
+{
+  "scCompanyName": "SC Company Test Name",
+  "gcOrganizationName": "GC bau",
+  "expiringCertificatesAndDurations": [
+    {
+      "name": "test4.pdf",
+      "duration": "in 3 Wochen",
+      "certificateTypeName": "Bescheinigung §14 UStG.",
+      "companyId": "6284f5e4-fd2f-4988-8aac-c55f0d272982",
+      "certificateId": "64c7-4b8b-8789-89955fe15c75",
+      "platformUrl": "https://platform.dev.tenera.app"
+    },
+    {
+      "name": "test3.pdf",
+      "duration": "in 5 Tagen",
+      "certificateTypeName": "Bescheinigung §16 UStG.",
+      "companyId": "35570f57-0ad4-4a0a-9edd-80521bd878eb",
+      "certificateId": "6fd41f71-cf9e-404f-8bdf-b21090ac8cc9",
+      "platformUrl": "https://platform.dev.tenera.app"
+    }
+  ],
+  "expiredCertificatesAndDurations": [
+    {
+      "name": "test2.pdf",
+      "duration": "vor 1 Wochen",
+      "certificateTypeName": "Bescheinigung §11 UStG.",
+      "companyId": "35570f57-0ad4-4a0a-9edd-80521bd878eb",
+      "certificateId": "6fd41f71-cf9e-404f-8bdf-b21090ac8cc9",
+      "platformUrl": "https://platform.dev.tenera.app"
+    },
+    {
+      "name": "test1.pdf",
+      "duration": "vor 4 Tagen",
+      "certificateTypeName": "Bescheinigung §12 UStG.",
+      "companyId": "35570f57-0ad4-4a0a-9edd-80521bd878eb",
+      "certificateId": "6fd41f71-cf9e-404f-8bdf-b21090ac8cc9",
+      "platformUrl": "https://platform.dev.tenera.app"
+    }
+  ]
+}

@@ -1,11 +1,7 @@
 <html data-reactroot="">
   <title>
-    {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit <!-- -->{{#if
-    inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-    wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale "en")}}<!--
-    -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!--
-    -->{{/if}}<!-- --> is inviting you to collaborate on the Tenera
-    platform.<!-- -->{{/if}}</title
+    Abgelaufene oder bald ablaufende Bescheinigungen von <!-- -->{{#if
+    scCompanyName}}<!-- -->{{scCompanyName}}<!-- -->{{/if}}</title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -60,11 +56,8 @@
                     font-family: Gilroy, Lato, Tahoma, sans-serif;
                   "
                 >
-                  {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit
-                  <!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale
-                  "en")}}<!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  is inviting you to collaborate on the Tenera platform.<!-- -->{{/if}}
+                  Abgelaufene oder bald ablaufende Bescheinigungen von
+                  <!-- -->{{#if scCompanyName}}<!-- -->{{scCompanyName}}<!-- -->{{/if}}
                 </p>
               </td>
             </tr>
@@ -87,18 +80,21 @@
           <tbody>
             <div>
               <p>
-                {{#if (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#if
-                (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
-                inviterFirstName}}<!-- -->{{inviterFirstName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterLastName}}<!-- -->
-                {{inviterLastName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterPosition}}<!-- -->
-                {{inviterPosition}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterCompanyName}}<!-- -->, {{inviterCompanyName}}<!-- -->{{/if}}
+                Hallo
+                <!-- -->{{#if gcOrganizationName}}<!-- -->{{gcOrganizationName}}<!-- -->{{/if}}<!-- -->,
               </p>
-              <p>{{{message}}}</p>
+              <p>
+                einige Bescheinigungen von
+                <!-- -->{{#if scCompanyName}}<!-- -->{{scCompanyName}}<!-- -->{{/if}}<!-- -->
+                laufen demnächst ab oder sind bereits abgelaufen.<br />Eine
+                Übersicht über den Status aller Bescheingungen können Sie direkt
+                im Profil von<!-- -->
+                <!-- -->{{#if scCompanyName}}<!-- -->{{scCompanyName}}<!-- -->{{/if}}<!-- -->
+                einsehen, indem Sie auf “Bescheingungen einsehen” klicken. Unten
+                sehen Sie bereits eine Liste der betroffenen Bescheinigungen.
+              </p>
               <a
-                href="{{acceptInvitationURL}}"
+                href="{{expiredCertificatesAndDurations.[0].platformUrl}}/contacts/{{expiredCertificatesAndDurations.[0].companyId}}/?contactCompanyActiveTab=certificates"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -114,41 +110,103 @@
                 "
                 target="_blank"
                 rel="noreferrer"
-                ><font color="#ffffff"
-                  >{{#if (equals locale "de")}}<!-- -->Einladung annehmen<!-- -->{{/if}}<!-- -->{{#if
-                  (equals locale "en")}}<!-- -->Accept invite<!-- -->{{/if}}</font
-                ></a
+                ><font color="#ffffff">Bescheinigungen einsehen</font></a
               ><br /><br /><br />
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>Abgelaufene Bescheinigungen</h4>
+                          {{#each expiredCertificatesAndDurations}}
+                          <ul style="list-style-type: none">
+                            <li>
+                              Lief
+                              <!-- -->{{#if this.duration}}<!-- -->{{this.duration}}<!-- -->{{/if}}<!-- -->
+                              ab
+                              <ul>
+                                {{#if this.certificateTypeName}}
+                                <li>
+                                  {{#if this.certificateTypeName}}<!-- -->{{this.certificateTypeName}}<!-- -->{{/if}}
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="{{ this.platformUrl }}/contacts/{{this.companyId}}/?certificateId={{this.certificateId}}&amp;contactCompanyActiveTab=certificates"
+                                        style="color: black"
+                                        >{{#if this.name}}<!-- -->{{this.name}}<!-- -->{{/if}}</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                                {{/if}}
+                              </ul>
+                            </li>
+                          </ul>
+                          {{/each}}<br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>Abgelaufene Bescheinigungen</h4>
+                          {{#each expiringCertificatesAndDurations}}
+                          <ul style="list-style-type: none">
+                            <li>
+                              Läuft
+                              <!-- -->{{#if this.duration}}<!-- -->{{this.duration}}<!-- -->{{/if}}<!-- -->
+                              ab
+                              <ul>
+                                {{#if this.certificateTypeName}}
+                                <li>
+                                  {{#if this.certificateTypeName}}<!-- -->{{this.certificateTypeName}}<!-- -->{{/if}}
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="{{ this.platformUrl }}/contacts/{{this.companyId}}/?certificateId={{this.certificateId}}&amp;contactCompanyActiveTab=certificates"
+                                        style="color: black"
+                                        >{{#if this.name}}<!-- -->{{this.name}}<!-- -->{{/if}}</a
+                                      >
+                                    </li>
+                                  </ul>
+                                </li>
+                                {{/if}}
+                              </ul>
+                            </li>
+                          </ul>
+                          {{/each}}<br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </tbody>
         </table>
-      </div>
-      <div
-        style="
-          width: 100%;
-          min-width: 280px;
-          max-width: 600px;
-          background-color: #ffffff;
-          margin: 0 auto;
-        "
-      >
-        <div class="section text" style="padding: 10px">
-          <table width="100%">
-            <tbody>
-              <tr>
-                <td align="left">
-                  <h4>Was ist Tenera?</h4>
-                  Tenera verbindet ausschreibende Auftraggeber mit
-                  Auftragnehmern. Alle notwendigen Informationen zu
-                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
-                  Subunternehmer können auf Tenera mit Generalunternehmern an
-                  Projekten in einem zentralisierten System zusammenarbeiten und
-                  kommunizieren.<br />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
       <div
         style="

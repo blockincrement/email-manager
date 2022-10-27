@@ -1,11 +1,7 @@
 <html data-reactroot="">
   <title>
-    {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit <!-- -->{{#if
-    inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-    wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale "en")}}<!--
-    -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!--
-    -->{{/if}}<!-- --> is inviting you to collaborate on the Tenera
-    platform.<!-- -->{{/if}}</title
+    Generalbau GmbH fragt 2
+    Bescheinigungen von Ihnen an.</title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -60,11 +56,9 @@
                     font-family: Gilroy, Lato, Tahoma, sans-serif;
                   "
                 >
-                  {{#if (equals locale "de")}}<!-- -->Ihre Zusammenarbeit mit
-                  <!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  wird digitaler.<!-- -->{{/if}}<!-- -->{{#if (equals locale
-                  "en")}}<!-- -->{{#if inviterCompanyName}}<!-- -->{{inviterCompanyName}}<!-- -->{{/if}}<!-- -->
-                  is inviting you to collaborate on the Tenera platform.<!-- -->{{/if}}
+                  Generalbau GmbH fragt
+                  2 Bescheinigungen von Ihnen
+                  an.
                 </p>
               </td>
             </tr>
@@ -86,19 +80,9 @@
         <table width="100%">
           <tbody>
             <div>
-              <p>
-                {{#if (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#if
-                (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
-                inviterFirstName}}<!-- -->{{inviterFirstName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterLastName}}<!-- -->
-                {{inviterLastName}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterPosition}}<!-- -->
-                {{inviterPosition}}<!-- -->{{/if}}<!-- -->{{#if
-                inviterCompanyName}}<!-- -->, {{inviterCompanyName}}<!-- -->{{/if}}
-              </p>
-              <p>{{{message}}}</p>
+              <p><!-- -->Sehr geehrte Frau Erika Mustermann, bitte reichen Sie die aufgelisteten Bescheinigungen bis zum 22.07.2022 ein. Vielen Dank! Mit freundlichen Grüßen Manfred Maier Prokurist Generalbau GmbH Hauptstrasse 12 12345 Berlin<!-- --></p>
               <a
-                href="{{acceptInvitationURL}}"
+                href="https://platform.dev.tenera.app/certificate-submission/?token&#x3D;bWscf7s7M1lx2nGZM01otNk1Y6aW5TMuzL6rr11SM9anRjKaz5H4Abl6DzLJ8EQy"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -114,11 +98,60 @@
                 "
                 target="_blank"
                 rel="noreferrer"
-                ><font color="#ffffff"
-                  >{{#if (equals locale "de")}}<!-- -->Einladung annehmen<!-- -->{{/if}}<!-- -->{{#if
-                  (equals locale "en")}}<!-- -->Accept invite<!-- -->{{/if}}</font
-                ></a
-              ><br /><br /><br />
+                ><font color="#ffffff">Bescheinigungen hochladen</font></a
+              ><br /><br />
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>Angefragte Bescheinigungen</h4>
+                          <ul>
+                            <li>
+                              <!-- -->Bescheinigung §13 UStG.<!-- -->
+                            </li>
+                            <li>
+                              <!-- -->Handelsregisterauszug<!-- -->
+                            </li>
+                          </ul>
+                          <br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4></h4>
+                          <!-- -->Marlene Schmidt<!-- --><br /><!-- -->Bauleitung<!-- --><br /><!-- -->+49812345678-12<!-- --><br /><!-- -->marleneschmidt@generalbau.com<!-- --><br /><br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </tbody>
         </table>

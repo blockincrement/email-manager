@@ -1,0 +1,6 @@
+{
+  "approvedCertificateProposals": [
+    {"filename": "test.pdf", "handledBy": "myname", "certificateProposalUrl": "xxxx"}
+  ],
+  "gcOrganizationName": "Mürle & Söhne GmbH"
+}

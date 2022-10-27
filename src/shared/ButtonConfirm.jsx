@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import IfLocale from '../helpers/IfLocale'
 
-const ButtonConfirm = ({ title, titleLocaleEn, titleLocaleDe, hrefVariableName }) => (
+const ButtonConfirm = ({ title, titleLocaleEn, titleLocaleDe, hrefValue }) => (
   <a
-    href={`{{${hrefVariableName}}}`}
+    href={`${hrefValue}`}
     style={{
       borderRadius: '5px',
       backgroundColor: '#059E9B',
@@ -37,7 +37,7 @@ ButtonConfirm.propTypes = {
   title: PropTypes.string,
   titleLocaleEn: PropTypes.string,
   titleLocaleDe: PropTypes.string,
-  hrefVariableName: PropTypes.string.isRequired,
+  hrefValue: PropTypes.string.isRequired,
 }
 
 ButtonConfirm.defaultProps = {
