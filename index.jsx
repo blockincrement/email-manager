@@ -5,20 +5,32 @@ import { fileURLToPath, pathToFileURL } from 'url'
 import Handlebars from 'handlebars'
 import prettier from 'prettier'
 
-import Layout from './shared/Layout'
-import Header from './shared/Header'
-import Footer from './shared/Footer'
-import AboutTenera from './shared/AboutTenera'
-import BottomText from './shared/BottomText'
+import Layout from './src/shared/Layout'
+import Header from './src/shared/Header'
+import Footer from './src/shared/Footer'
+import AboutTenera from './src/shared/AboutTenera'
+import BottomText from './src/shared/BottomText'
 
-import { templatesUrl, rootDir, outputDir } from './config'
+import { templatesUrl, rootDir, outputDir, previewDir } from './src/config'
 
 Handlebars.registerHelper('equals', (arg1, arg2) => arg1 === arg2)
 
+const importTestData = async templateName => {
+  try {
+    const testData = await import(`./src/templates/${templateName}/testData.json`)
+
+    return {
+      testData,
+    }
+  } catch (err) {
+    return {}
+  }
+}
+
 const importTemplateComponents = async templateName => {
   try {
-    const Title = await import(`./templates/${templateName}/Title`)
-    const Body = await import(`./templates/${templateName}/Body`)
+    const Title = await import(`./src/templates/${templateName}/Title`)
+    const Body = await import(`./src/templates/${templateName}/Body`)
 
     return {
       Title: Title?.default,
@@ -31,12 +43,15 @@ const importTemplateComponents = async templateName => {
 
 const loopFilesInTemplate = async templateName => {
   const currentOutputDir = `${rootDir}/${outputDir}/${templateName}`
+  const currentPreviewDir = `${rootDir}/${previewDir}/${templateName}`
 
   const { Title, Body } = await importTemplateComponents(templateName)
 
   if (!Title || !Body) {
     return
   }
+
+  const { testData } = await importTestData(templateName)
 
   const htmlRaw = renderToString(
     <Layout
@@ -54,7 +69,13 @@ const loopFilesInTemplate = async templateName => {
     const formattedCode = prettier.format(html, { parser: 'html' })
 
     // validate that generated html is valid Handlebars template and can work in the SendGrid
-    Handlebars.precompile(formattedCode)
+    const template = Handlebars.compile(formattedCode)
+
+    // if testDate.json file is within template folder, build html and save it in the /preview folder
+    if (testData) {
+      const compiledTemplate = template(testData)
+      await fs.writeFile(pathToFileURL(`${currentPreviewDir}.html`), compiledTemplate)
+    }
 
     await fs.writeFile(pathToFileURL(`${currentOutputDir}.hbs`), formattedCode)
   } catch (e) {

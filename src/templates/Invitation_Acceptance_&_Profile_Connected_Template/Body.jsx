@@ -31,8 +31,6 @@ const Body = () => (
       hrefVariableName="reviewContactURL"
     />
     <br />
-    <br />
-    <br />
   </div>
 )
 

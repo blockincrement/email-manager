@@ -21,6 +21,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/html-has-lang': 'off',
     'react/no-unknown-property': 'off',
-    'react/function-component-definition': 'off'
+    'react/function-component-definition': 'off',
+    'react/forbid-prop-types': 'off'
   }
 };

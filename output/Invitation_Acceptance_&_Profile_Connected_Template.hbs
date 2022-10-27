@@ -1,10 +1,11 @@
 <html data-reactroot="">
   <title>
     {{#if (equals locale "de")}}<!-- -->{{#if ownerOrganizationName}}<!--
-    -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- --> hat ihre Einladung
-    angenommen.<!-- -->{{/if}}<!-- -->{{#if (equals locale "en")}}<!-- -->{{#if
-    ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!--
-    --> has accepted your invitation.<!-- -->{{/if}}</title
+    -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- --> hat Ihre Einladung zur
+    Vernetzung angenommen.<!-- -->{{/if}}<!-- -->{{#if (equals locale
+    "en")}}<!-- -->{{#if ownerOrganizationName}}<!--
+    -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- --> has accepted your
+    invitation.<!-- -->{{/if}}</title
   ><head></head>
   <body>
     <div
@@ -61,7 +62,7 @@
                 >
                   {{#if (equals locale "de")}}<!-- -->{{#if
                   ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                  hat ihre Einladung angenommen.<!-- -->{{/if}}<!-- -->{{#if
+                  hat Ihre Einladung zur Vernetzung angenommen.<!-- -->{{/if}}<!-- -->{{#if
                   (equals locale "en")}}<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
                   has accepted your invitation.<!-- -->{{/if}}
                 </p>
@@ -104,7 +105,13 @@
               <p>
                 Sie sind jetzt auf Tenera mit
                 <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                vernetzt.
+                vernetzt.<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
+                hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
+                angenommen. Durch die Vernetzung wird Ihre Kommunikation und
+                Zusammenarbeit in Projekten effizienter und transparenter. Indem
+                Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum
+                Profil von<!-- -->
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
               </p>
               {{/if}}<a
                 href="{{reviewContactURL}}"
@@ -127,7 +134,7 @@
                   >{{#if (equals locale "de")}}<!-- -->Profil ansehen<!-- -->{{/if}}<!-- -->{{#if
                   (equals locale "en")}}<!-- -->Review company profile<!-- -->{{/if}}</font
                 ></a
-              ><br /><br /><br />
+              ><br />
             </div>
           </tbody>
         </table>

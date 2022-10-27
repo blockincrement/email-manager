@@ -4,7 +4,8 @@
   "description": "Stores Tenera email templates",
   "main": "index.js",
   "scripts": {
-    "generate": "npx babel-node index.jsx",
+    "generate": "nodemon --exec babel-node index.jsx",
+    "generate:live": "nodemon --watch src --exec babel-node index.jsx",
     "render:preact": "node renderers/htm-preact-renderer.js -t templates/preact/ -o output/preact/",
     "render:react": "node renderers/htm-react-renderer.js -t templates/react/ -o output/react/",
     "serve:preact": "http-server -c-1 . -o output/preact/home.preact.html",
@@ -36,6 +37,7 @@
     "eslint-plugin-prefer-arrow-functions": "^3.1.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "nodemon": "^2.0.20"
   }
 }

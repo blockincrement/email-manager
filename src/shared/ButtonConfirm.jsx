@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import IfLocale from '../helpers/IfLocale'
 
-const ButtonConfirm = ({ titleLocaleEn, titleLocaleDe, hrefVariableName }) => (
+const ButtonConfirm = ({ title, titleLocaleEn, titleLocaleDe, hrefVariableName }) => (
   <a
     href={`{{${hrefVariableName}}}`}
     style={{
@@ -23,19 +23,25 @@ const ButtonConfirm = ({ titleLocaleEn, titleLocaleDe, hrefVariableName }) => (
     rel="noreferrer"
   >
     <font color="#ffffff">
-      <IfLocale locale="de">{titleLocaleDe}</IfLocale>
-      <IfLocale locale="en">{titleLocaleEn}</IfLocale>
+      {title || (
+        <>
+          <IfLocale locale="de">{titleLocaleDe}</IfLocale>
+          <IfLocale locale="en">{titleLocaleEn}</IfLocale>
+        </>
+      )}
     </font>
   </a>
 )
 
 ButtonConfirm.propTypes = {
+  title: PropTypes.string,
   titleLocaleEn: PropTypes.string,
   titleLocaleDe: PropTypes.string,
   hrefVariableName: PropTypes.string.isRequired,
 }
 
 ButtonConfirm.defaultProps = {
+  title: '',
   titleLocaleEn: '',
   titleLocaleDe: '',
 }
