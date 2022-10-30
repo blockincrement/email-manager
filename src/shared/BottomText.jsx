@@ -3,7 +3,13 @@ import React from 'react'
 const BottomText = () => (
   <div style={{ width: '100%', minWidth: '280px', maxWidth: '600px', backgroundColor: '#ffffff', margin: '0 auto' }}>
     <div className="section text" style={{ padding: '10px' }}>
-      <table width="100%">
+      <table
+        width="100%"
+        style={{
+          fontSize: '15px',
+          fontFamily: 'Gilroy, Lato,Tahoma,sans-serif',
+        }}
+      >
         <tbody>
           <tr>
             <td align="left">

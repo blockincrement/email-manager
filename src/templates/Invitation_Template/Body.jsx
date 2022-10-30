@@ -4,6 +4,7 @@ import IfLocale from '../../helpers/IfLocale'
 import Variable from '../../helpers/Variable'
 import AboutTenera from '../../shared/AboutTenera'
 import BottomText from '../../shared/BottomText'
+import IfVariable from '../../helpers/IfVariable'
 
 const Body = () => (
   <>
@@ -14,10 +15,15 @@ const Body = () => (
             <p>
               <IfLocale locale="de">Hallo</IfLocale>
               <IfLocale locale="en">Hello</IfLocale>
-              <Variable name="inviterFirstName" />
-              <Variable prefixText={' '} name="inviterLastName" />
-              <Variable prefixText={' '} name="inviterPosition" />
-              <Variable prefixText=", " name="inviterCompanyName" />
+              <Variable prefixText=" " name="inviterFirstName" />
+              <Variable prefixText=" " name="inviterLastName" />
+              <IfVariable name="inviterCompanyName">
+                <Variable prefixText=" " name="inviterPosition" />
+              </IfVariable>
+              ,
+              <IfVariable name="inviterPosition">
+                <Variable prefixText=" " name="inviterCompanyName" />
+              </IfVariable>
             </p>
             <p>{`{{{message}}}`}</p>
             <ButtonConfirm

@@ -1,0 +1,9 @@
+{
+  "locale": "de",
+  "effect": "ALLOW",
+  "sharedWithUserFirstName": "Mark",
+  "sharedWithUserLastName": "Mustermann",
+  "reviewContactURL": "http://localhost:8080",
+  "compareProfilesURL": "http://localhost:8080",
+  "ownerOrganizationName": "Romer Elektro"
+}

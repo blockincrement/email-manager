@@ -1,7 +1,8 @@
 <html data-reactroot="">
   <title>
-    {{#if companyName}}<!-- -->{{companyName}}<!-- -->{{/if}}<!-- --> hat
-    Bescheinigungen hochgeladen.</title
+    {{#if (equals locale "de")}}{{ownerOrganizationName}} hat Ihre Einladung zur
+    Vernetzung angenommen.{{/if}}{{#if (equals locale
+    "en")}}{{ownerOrganizationName}} has accepted your invitation.{{/if}}</title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -56,8 +57,10 @@
                     text-align: center;
                   "
                 >
-                  {{#if companyName}}<!-- -->{{companyName}}<!-- -->{{/if}}<!-- -->
-                  hat Bescheinigungen hochgeladen.
+                  {{#if (equals locale "de")}}{{ownerOrganizationName}} hat Ihre
+                  Einladung zur Vernetzung angenommen.{{/if}}{{#if (equals
+                  locale "en")}}{{ownerOrganizationName}} has accepted your
+                  invitation.{{/if}}
                 </p>
               </td>
             </tr>
@@ -79,15 +82,35 @@
         <table width="100%">
           <tbody>
             <div>
-              <p>Hallo,</p>
+              {{#if (equals locale "en")}}
               <p>
-                {{#if companyName}}<!-- -->{{companyName}}<!-- -->{{/if}}<!-- -->
-                hat neue Bescheinigungen hochgeladen. Indem Sie auf
-                “Bescheinigungen einsehen” klicken, können Sie alle
-                Bescheinigungen ansehen und überprüfen.
+                Hello<!-- -->{{#if sharedWithUserFirstName}}<!-- -->
+                {{sharedWithUserFirstName}}<!-- -->{{/if}}<!-- -->{{#if
+                sharedWithUserLastName}}<!-- -->
+                {{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
               </p>
-              <a
-                href="{{certificateProposalUrl}}"
+              <p>
+                You are now connected on Tenera with
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
+              </p>
+              {{/if}}<!-- -->{{#if (equals locale "de")}}
+              <p>
+                Hallo<!-- -->{{#if sharedWithUserFirstName}}<!-- -->
+                {{sharedWithUserFirstName}}<!-- -->{{/if}}<!-- -->{{#if
+                sharedWithUserLastName}}<!-- -->
+                {{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
+              </p>
+              <p>
+                {{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
+                hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
+                angenommen. Durch die Vernetzung wird Ihre Kommunikation und
+                Zusammenarbeit in Projekten effizienter und transparenter. Indem
+                Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum
+                Profil von<!-- -->
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
+              </p>
+              {{/if}}<a
+                href="{{reviewContactURL}}"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -105,45 +128,41 @@
                 "
                 target="_blank"
                 rel="noreferrer"
-                ><font color="#ffffff">Bescheinigungen prüfen</font></a
+                ><font color="#ffffff"
+                  >{{#if (equals locale "de")}}<!-- -->Profil ansehen<!-- -->{{/if}}<!-- -->{{#if
+                  (equals locale "en")}}<!-- -->View Company Profile<!-- -->{{/if}}</font
+                ></a
               ><br /><br /><br />
-              <div
-                style="
-                  width: 100%;
-                  min-width: 280px;
-                  max-width: 600px;
-                  background-color: #ffffff;
-                  margin: 0 auto;
-                "
-              >
-                <div class="section text" style="padding: 10px">
-                  <table width="100%">
-                    <tbody>
-                      <tr>
-                        <td align="left">
-                          <h4>Kürzlich eingereicht Bescheinigungen</h4>
-                          <ul>
-                            {{#if certificateProposals}}<!-- -->{{#each
-                            certificateProposals}}
-                            <li>
-                              <a
-                                href="{{this.certificateProposalUrl}}"
-                                style="color: black"
-                                >{{#if this.filename}}<!-- -->{{this.filename}}<!-- -->{{/if}}</a
-                              >
-                            </li>
-                            {{/each}}<!-- -->{{/if}}
-                          </ul>
-                          <br />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
             </div>
           </tbody>
         </table>
+      </div>
+      <div
+        style="
+          width: 100%;
+          min-width: 280px;
+          max-width: 600px;
+          background-color: #ffffff;
+          margin: 0 auto;
+        "
+      >
+        <div class="section text" style="padding: 10px">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <h4>Was ist Tenera?</h4>
+                  Tenera verbindet ausschreibende Auftraggeber mit
+                  Auftragnehmern. Alle notwendigen Informationen zu
+                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
+                  Subunternehmer können auf Tenera mit Generalunternehmern an
+                  Projekten in einem zentralisierten System zusammenarbeiten und
+                  kommunizieren.<br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div
         style="

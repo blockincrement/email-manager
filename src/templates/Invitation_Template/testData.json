@@ -3,5 +3,6 @@
   "inviterCompanyName": "TestComp BAU",
   "message": "Guten Tag, TestComp BAU lädt Sie zur Zusammenarbeit auf der Tenera Plattform ein. Damit wird unsere Kommunikation und Zusammenarbeit transparenter und effizienter.",
   "inviterLastName": "Marie",
-  "inviterFirstName": "Müller"
+  "inviterFirstName": "Müller",
+  "inviterPosition": "manager"
 }

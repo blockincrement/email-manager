@@ -15,7 +15,13 @@ const Layout = ({ title, header, body, footer }) => (
     >
       {header}
       <div
-        style={{ width: '100%', minWidth: '280px', maxWidth: '600px', backgroundColor: '#ffffff', margin: '0 auto' }}
+        style={{
+          width: '100%',
+          minWidth: '280px',
+          maxWidth: '600px',
+          backgroundColor: '#ffffff',
+          margin: '15 auto 0 auto',
+        }}
       >
         <div className="section menu">
           <table width="100%">
@@ -24,7 +30,8 @@ const Layout = ({ title, header, body, footer }) => (
                 <td align="center">
                   <p
                     style={{
-                      fontSize: '16px',
+                      fontFamily: 'Gilroy, Lato,Tahoma,sans-serif',
+                      fontSize: '20px',
                       lineHeight: '175%',
                       fontWeight: 'bold',
                       textAlign: 'center',

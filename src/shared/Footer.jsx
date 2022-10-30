@@ -1,4 +1,16 @@
 import React from 'react'
+import IfLocale from '../helpers/IfLocale'
+
+const LOC_FOOTER_TEXT_DE = `Diese Kommunikation erfolgt über die von Digital Rocks GmbH hierfür unter platform.tenera.app bereitgestellte Plattform. Mit Ihrem Zugang zur Plattform oder Ihrer Kontaktaufnahme mit dem Service Team stimmen Sie gegenüber Digital Rocks GmbH den hierfür geltenden allgemeinen Geschäftsbedingungen zu.`
+const LOC_FOOTER_TEXT_EN = `You cannot reply to this email. Please reach out to your contact directly or in case of technical issues please reach out to our service team via service@tenera.io. This communication takes place via the platform provided by Digital Rocks GmbH for this purpose at platform.tenera.app. By accessing the platform or reaching out to the service team, you agree to Digital Rocks GmbH’s applicable terms and conditions.`
+const LOC_TENERA_ADDRESS_DE = `Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin, Berlin 10435, Deutschland`
+const LOC_TENERA_ADDRESS_EN = `Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin, Berlin 10435, Germany`
+const LOC_IMPRINT_DE = `Impressum`
+const LOC_IMPRINT_EN = `Imprint`
+const LOC_TAC_DE = `Allgmeine Geschäftsbedingungen`
+const LOC_TAC_EN = `Terms and Conditions`
+const LOC_DATA_POLICY_DE = `Datenschutzerklärung`
+const LOC_DATA_POLICY_EN = `Data Policy`
 
 const Footer = () => (
   <div className="hse-section hse-section-last" id="section-6">
@@ -15,7 +27,7 @@ const Footer = () => (
         borderCollapse: 'collapse',
         borderSpacing: 0,
         backgroundColor: '#00282b',
-        paddingTop: '30px',
+        paddingTop: '10px',
       }}
     >
       {/* <!--    <![endif][if (mso)|(IE)]>--> */}
@@ -116,14 +128,12 @@ const Footer = () => (
                                 direction: 'ltr',
                               }}
                             >
-                              Diese Kommunikation erfolgt über die von Digital Rocks GmbH hierfür unter
-                              platform.tenera.app bereitgestellte Plattform. Mit Ihrem Zugang zur Plattform oder Ihrer
-                              Kontaktaufnahme mit dem Service Team stimmen Sie gegenüber Digital Rocks GmbH den hierfür
-                              geltenden allgemeinen Geschäftsbedingungen zu.
+                              <IfLocale locale="de">{LOC_FOOTER_TEXT_DE}</IfLocale>
+                              <IfLocale locale="en">{LOC_FOOTER_TEXT_EN}</IfLocale>
                               <br />
                               <br />
-                              Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin, Berlin 10435, Deutschland, 030
-                              31192633
+                              <IfLocale locale="de">{LOC_TENERA_ADDRESS_DE}</IfLocale>
+                              <IfLocale locale="en">{LOC_TENERA_ADDRESS_EN}</IfLocale>
                             </p>
                             <p
                               key="p2"
@@ -137,19 +147,22 @@ const Footer = () => (
                               }}
                             >
                               <a key="p2a1" href="https://www.tenera.io/legal/imprint" style={{ color: '#059e9b' }}>
-                                Impressum
+                                <IfLocale locale="de">{LOC_IMPRINT_DE}</IfLocale>
+                                <IfLocale locale="en">{LOC_IMPRINT_EN}</IfLocale>
                               </a>
-                              <span style={{ color: 'white' }}>|</span>
+                              <span style={{ color: '#059e9b', margin: '0 6px' }}>|</span>
                               <a key="p2a2" href="https://en.tenera.io/agb" style={{ color: '#059e9b' }}>
-                                Allgmeine Geschäftsbedingungen
+                                <IfLocale locale="de">{LOC_TAC_DE}</IfLocale>
+                                <IfLocale locale="en">{LOC_TAC_EN}</IfLocale>
                               </a>
-                              <span style={{ color: 'white' }}>|</span>
+                              <span style={{ color: '#059e9b', margin: '0 6px' }}>|</span>
                               <a
                                 key="p2a3"
                                 href="https://www.tenera.io/legal/datenschutzerklaerung"
                                 style={{ color: '#059e9b' }}
                               >
-                                Datenschutzerklärung
+                                <IfLocale locale="de">{LOC_DATA_POLICY_DE}</IfLocale>
+                                <IfLocale locale="en">{LOC_DATA_POLICY_EN}</IfLocale>
                               </a>
                               <br />
                               &nbsp;
