@@ -1,13 +1,8 @@
 <html data-reactroot="">
   <title>
-    {{#if (equals locale "de")}}<!-- -->{{#if ownerOrganizationName}}<!--
-    -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- --> hat Ihre Einladung zur
-    Vernetzung angenommen.<!-- -->{{/if}}<!-- -->{{#unless locale}}<!-- -->{{#if
-    ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!--
-    --> hat Ihre Einladung zur Vernetzung angenommen.<!-- -->{{/unless}}<!--
-    -->{{#if (equals locale "en")}}<!-- -->{{#if ownerOrganizationName}}<!--
-    -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- --> has accepted your
-    invitation.<!-- -->{{/if}}</title
+    {{#equals locale "de"}}{{{ownerOrganizationName}}} hat Ihre Einladung zur
+    Vernetzung angenommen{{/equals}} {{#equals locale
+    "en"}}{{{ownerOrganizationName}}} has accepted your invitation{{/equals}}</title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -62,13 +57,10 @@
                     text-align: center;
                   "
                 >
-                  {{#if (equals locale "de")}}<!-- -->{{#if
-                  ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                  hat Ihre Einladung zur Vernetzung angenommen.<!-- -->{{/if}}<!-- -->{{#unless
-                  locale}}<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                  hat Ihre Einladung zur Vernetzung angenommen.<!-- -->{{/unless}}<!-- -->{{#if
-                  (equals locale "en")}}<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                  has accepted your invitation.<!-- -->{{/if}}
+                  {{#equals locale "de"}}{{{ownerOrganizationName}}} hat Ihre
+                  Einladung zur Vernetzung angenommen{{/equals}} {{#equals
+                  locale "en"}}{{{ownerOrganizationName}}} has accepted your
+                  invitation{{/equals}}
                 </p>
               </td>
             </tr>
@@ -247,38 +239,6 @@
         </div>
       </div>
       {{/unless}}
-      <div
-        style="
-          width: 100%;
-          min-width: 280px;
-          max-width: 600px;
-          background-color: #ffffff;
-          margin: 0 auto;
-        "
-      >
-        <div class="section text" style="padding: 10px">
-          <table
-            width="100%"
-            style="
-              font-size: 15px;
-              font-family: Gilroy, Lato, Tahoma, sans-serif;
-            "
-          >
-            <tbody>
-              <tr>
-                <td align="left">
-                  <p style="mso-line-height-rule: exactly">
-                    Leider können Sie auf diese E-Mail nicht antworten. Bei
-                    Fragen oder technischen Problemen wenden Sie sich bitte
-                    direkt an Ihre/n AnsprechpartnerIn oder an unser Service
-                    Team via service@tenera.io.<br /><br />
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
       <div
         class="hse-section"
         id="section_1616761784046"

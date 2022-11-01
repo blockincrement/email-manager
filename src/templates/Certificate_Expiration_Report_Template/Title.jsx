@@ -1,10 +1,8 @@
 import React from 'react'
-import Variable from '../../helpers/Variable'
 
 const Title = () => (
-  <>
-    Abgelaufene oder bald ablaufende Bescheinigungen von <Variable name="scCompanyName" />
-  </>
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  <>{`Abgelaufene oder bald ablaufende Bescheinigungen von {{{scCompanyName}}}`}</>
 )
 
 export default Title
