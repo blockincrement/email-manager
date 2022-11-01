@@ -48,6 +48,44 @@ Start script ba running `npm run generate:live`.
 - Open generated HTML file in the browser
 - On each change in the React components script will re-run and generate fresh preview
 
+## React components instead of Handlebars
 
+Handlebars is a great templating language, but it's not very flexible. It's hard to reuse parts of the template, to    
+write complex logic and to debug.
 
+To overcome Handlebars limitations, React components can be used instead.
 
+Some examples:
+
+`Each` comp
+
+                <Each iterator="approvedCertificateProposals">
+                  <li>
+                    ...
+                  </li>
+                </Each>
+
+instead
+
+                {`{{#each ${iterator}}}`}
+                {children}
+                {`{{/each}}`}
+
+`IfLocale` comp
+
+              <IfLocale locale="de">{LOC_FOOTER_TEXT_DE}</IfLocale>
+
+instead
+              {`{{#if (equals locale "${locale}")}}`}
+              {children}
+              {`{{/if}}`}
+
+All available components can be found in `src/helpers` folder.
+
+## Localization
+
+Default localization is German.
+
+      <IfLocale locale="de">
+        will be visible if locale is "de" or undefined
+      </IfLocale>

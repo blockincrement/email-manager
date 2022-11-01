@@ -1,0 +1,18 @@
+{
+  "locale": "de",
+  "effect": "ALLOW",
+  "sharedWithUserFirstName": "Mark",
+  "sharedWithUserLastName": "Mustermann",
+  "reviewContactURL": "http://localhost:8080",
+  "compareProfilesURL": "http://localhost:8080",
+  "ownerOrganizationName": "Romer Elektro",
+  "constructionStartDate": "24 Jun 2021",
+  "constructionEndDate": "24 Aug 2024",
+  "siteAddressLine1": "Kantstr. 34",
+  "siteAddressLine2": "4. OG",
+  "siteAddressPostalCode": "10123",
+  "siteAddressCity": "Berlin",
+  "siteAddressCountry": "Germany",
+  "description": "The proposed building would generally be modern in design. Exterior finishes would include fireresistant cedar wood siding, stained a caramel color, or site-cast concrete tilt-up...",
+  "workOrderName": "Bauarbeiten"
+}

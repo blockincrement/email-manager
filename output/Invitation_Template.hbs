@@ -134,6 +134,34 @@
           </tbody>
         </table>
       </div>
+      {{#if (equals locale "en")}}
+      <div
+        style="
+          width: 100%;
+          min-width: 280px;
+          max-width: 600px;
+          background-color: #ffffff;
+          margin: 0 auto;
+        "
+      >
+        <div class="section text" style="padding: 10px">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <h4>What is Tenera?</h4>
+                  Tenera connects general contractors with subcontractors,
+                  allowing them to work together seamlessly on the platform
+                  throughout the construction journey phases. Project
+                  communication and documentation is saved centrally, so that
+                  everything can be found in one place.<br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{/if}}<!-- -->{{#if (equals locale "de")}}
       <div
         style="
           width: 100%;
@@ -161,6 +189,35 @@
           </table>
         </div>
       </div>
+      {{/if}}<!-- -->{{#unless locale}}
+      <div
+        style="
+          width: 100%;
+          min-width: 280px;
+          max-width: 600px;
+          background-color: #ffffff;
+          margin: 0 auto;
+        "
+      >
+        <div class="section text" style="padding: 10px">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <h4>Was ist Tenera?</h4>
+                  Tenera verbindet ausschreibende Auftraggeber mit
+                  Auftragnehmern. Alle notwendigen Informationen zu
+                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
+                  Subunternehmer können auf Tenera mit Generalunternehmern an
+                  Projekten in einem zentralisierten System zusammenarbeiten und
+                  kommunizieren.<br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{/unless}}
       <div
         style="
           width: 100%;

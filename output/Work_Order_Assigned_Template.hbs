@@ -1,7 +1,9 @@
 <html data-reactroot="">
   <title>
-    <!-- --><!-- --><!-- --><!-- -->TestComp BAU<!-- --><!-- --> is
-    inviting you to collaborate on the Tenera platform.<!-- --></title
+    {{#if (equals locale "de")}}{{{ownerOrganizationName}}} lädt Sie zur
+    Zusammenarbeit am Auftrag {{workOrderName}} ein!{{/if}}{{#if (equals locale
+    "en")}}{{{ownerOrganizationName}}} shared work order draft {{workOrderName}}
+    with you!{{/if}}</title
   ><head></head>
   <body style="font-family: Gilroy, Lato, Tahoma, sans-serif">
     <div
@@ -56,8 +58,11 @@
                     text-align: center;
                   "
                 >
-                  <!-- --><!-- --><!-- --><!-- -->TestComp BAU<!-- --><!-- -->
-                  is inviting you to collaborate on the Tenera platform.<!-- -->
+                  {{#if (equals locale "de")}}{{{ownerOrganizationName}}} lädt
+                  Sie zur Zusammenarbeit am Auftrag {{workOrderName}}
+                  ein!{{/if}}{{#if (equals locale
+                  "en")}}{{{ownerOrganizationName}}} shared work order draft
+                  {{workOrderName}} with you!{{/if}}
                 </p>
               </td>
             </tr>
@@ -80,15 +85,25 @@
           <tbody>
             <div>
               <p>
-                <!-- --><!-- --><!-- -->Hello<!-- --><!-- --><!-- -->
-                Müller<!-- --><!-- --><!-- -->
-                Marie<!-- --><!-- --><!-- --><!-- -->
-                manager<!-- --><!-- --><!-- -->,<!-- --><!-- --><!-- -->
-                TestComp BAU<!-- --><!-- -->
+                {{#if (equals locale "en")}}<!-- -->Hello<!-- -->{{/if}}<!-- -->{{#if
+                (equals locale "de")}}<!-- -->Hallo<!-- -->{{/if}}<!-- -->{{#unless
+                locale}}<!-- -->Hallo<!-- -->{{/unless}}<!-- -->{{#if
+                sharedWithUserFirstName}}<!-- -->
+                {{sharedWithUserFirstName}}<!-- -->{{/if}}<!-- -->{{#if
+                sharedWithUserLastName}}<!-- -->
+                {{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
               </p>
-              <p>Guten Tag, TestComp BAU lädt Sie zur Zusammenarbeit auf der Tenera Plattform ein. Damit wird unsere Kommunikation und Zusammenarbeit transparenter und effizienter.</p>
+              <p>
+                {{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
+                hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
+                angenommen. Durch die Vernetzung wird Ihre Kommunikation und
+                Zusammenarbeit in Projekten effizienter und transparenter. Indem
+                Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum
+                Profil von<!-- -->
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
+              </p>
               <a
-                href=""
+                href="{{reviewWorkOrderURL}}"
                 style="
                   border-radius: 5px;
                   background-color: #059e9b;
@@ -107,13 +122,93 @@
                 target="_blank"
                 rel="noreferrer"
                 ><font color="#ffffff"
-                  ><!-- --><!-- --><!-- -->Accept invite<!-- --></font
+                  >{{#if (equals locale "de")}}<!-- -->Auftrag ansehen<!-- -->{{/if}}<!-- -->{{#unless
+                  locale}}<!-- -->Auftrag ansehen<!-- -->{{/unless}}<!-- -->{{#if
+                  (equals locale "en")}}<!-- -->See Work Order<!-- -->{{/if}}</font
                 ></a
               ><br /><br /><br />
+              <div
+                style="
+                  width: 100%;
+                  min-width: 280px;
+                  max-width: 600px;
+                  background-color: #ffffff;
+                  margin: 0 auto;
+                "
+              >
+                <div class="section text" style="padding: 10px">
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td align="left">
+                          <h4>{{workOrderName}}</h4>
+                          <ul
+                            style="
+                              list-style-type: none;
+                              padding-inline-start: 0;
+                            "
+                          >
+                            <li>
+                              {{#if (equals locale "en")}}<!-- -->Commissioned
+                              by<!-- -->{{/if}}<!-- -->{{#if (equals locale
+                              "de")}}<!-- -->Beauftragt von<!-- -->{{/if}}<!-- -->{{#unless
+                              locale}}<!-- -->Beauftragt von<!-- -->{{/unless}}
+                              <p style="margin-block-start: 0">
+                                <strong
+                                  >{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}</strong
+                                >
+                              </p>
+                            </li>
+                            <li>
+                              {{#if (equals locale "en")}}<!-- -->Project
+                              address<!-- -->{{/if}}<!-- -->{{#if (equals locale
+                              "de")}}<!-- -->Adresse<!-- -->{{/if}}<!-- -->{{#unless
+                              locale}}<!-- -->Adresse<!-- -->{{/unless}}
+                              <p style="margin-block-start: 0">
+                                <strong
+                                  >{{#if siteAddressLine1}}<!-- -->{{siteAddressLine1}}<!-- -->{{/if}}<br />{{#if
+                                  siteAddressLine2}}<!-- -->{{siteAddressLine2}}<!-- -->{{/if}}<!-- -->,<br />{{#if
+                                  siteAddressPostalCode}}<!-- -->{{siteAddressPostalCode}}<!-- -->{{/if}}<br />{{#if
+                                  siteAddressCity}}<!-- -->{{siteAddressCity}}<!-- -->{{/if}}<br
+                                /></strong>
+                              </p>
+                            </li>
+                            <li>
+                              {{#if (equals locale "en")}}<!-- -->Construction
+                              time frame<!-- -->{{/if}}<!-- -->{{#if (equals
+                              locale "de")}}<!-- -->Geplanter
+                              Ausführungszeitraum
+                              <!-- -->{{/if}}<!-- -->{{#unless locale}}<!-- -->Geplanter
+                              Ausführungszeitraum
+                              <!-- -->{{/unless}}
+                              <p style="margin-block-start: 0">
+                                <strong
+                                  >{{#if constructionStartDate}}<!-- -->{{constructionStartDate}}<!-- -->{{/if}}<!-- -->{{#if
+                                  constructionEndDate}}<!-- -->{{constructionEndDate}}<!-- -->{{/if}}<!-- -->,</strong
+                                >
+                              </p>
+                            </li>
+                            <li>
+                              {{#if (equals locale "en")}}<!-- -->Description<!-- -->{{/if}}<!-- -->{{#if
+                              (equals locale "de")}}<!-- -->Beschreibung<!-- -->{{/if}}<!-- -->{{#unless
+                              locale}}<!-- -->Beschreibung<!-- -->{{/unless}}
+                              <p style="margin-block-start: 0">
+                                {{#if description}}<!-- -->{{description}}<!-- -->{{/if}}
+                              </p>
+                            </li>
+                          </ul>
+                          <br />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </tbody>
         </table>
       </div>
+      {{#if (equals locale "en")}}
       <div
         style="
           width: 100%;
@@ -140,7 +235,64 @@
           </table>
         </div>
       </div>
-      <!-- --><!-- -->      <div
+      {{/if}}<!-- -->{{#if (equals locale "de")}}
+      <div
+        style="
+          width: 100%;
+          min-width: 280px;
+          max-width: 600px;
+          background-color: #ffffff;
+          margin: 0 auto;
+        "
+      >
+        <div class="section text" style="padding: 10px">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <h4>Was ist Tenera?</h4>
+                  Tenera verbindet ausschreibende Auftraggeber mit
+                  Auftragnehmern. Alle notwendigen Informationen zu
+                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
+                  Subunternehmer können auf Tenera mit Generalunternehmern an
+                  Projekten in einem zentralisierten System zusammenarbeiten und
+                  kommunizieren.<br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{/if}}<!-- -->{{#unless locale}}
+      <div
+        style="
+          width: 100%;
+          min-width: 280px;
+          max-width: 600px;
+          background-color: #ffffff;
+          margin: 0 auto;
+        "
+      >
+        <div class="section text" style="padding: 10px">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <h4>Was ist Tenera?</h4>
+                  Tenera verbindet ausschreibende Auftraggeber mit
+                  Auftragnehmern. Alle notwendigen Informationen zu
+                  Ausschreibungen und Aufträgen sind an einem Ort verfügbar.
+                  Subunternehmer können auf Tenera mit Generalunternehmern an
+                  Projekten in einem zentralisierten System zusammenarbeiten und
+                  kommunizieren.<br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{/unless}}
+      <div
         style="
           width: 100%;
           min-width: 280px;
@@ -330,7 +482,22 @@
                                     direction: ltr;
                                   "
                                 >
-                                  <!-- --><!-- --><!-- -->You cannot reply
+                                  {{#if (equals locale "de")}}<!-- -->Diese
+                                  Kommunikation erfolgt über die von Digital
+                                  Rocks GmbH hierfür unter platform.tenera.app
+                                  bereitgestellte Plattform. Mit Ihrem Zugang
+                                  zur Plattform oder Ihrer Kontaktaufnahme mit
+                                  dem Service Team stimmen Sie gegenüber Digital
+                                  Rocks GmbH den hierfür geltenden allgemeinen
+                                  Geschäftsbedingungen zu.<!-- -->{{/if}}<!-- -->{{#unless
+                                  locale}}<!-- -->Diese Kommunikation erfolgt
+                                  über die von Digital Rocks GmbH hierfür unter
+                                  platform.tenera.app bereitgestellte Plattform.
+                                  Mit Ihrem Zugang zur Plattform oder Ihrer
+                                  Kontaktaufnahme mit dem Service Team stimmen
+                                  Sie gegenüber Digital Rocks GmbH den hierfür
+                                  geltenden allgemeinen Geschäftsbedingungen zu.<!-- -->{{/unless}}<!-- -->{{#if
+                                  (equals locale "en")}}<!-- -->You cannot reply
                                   to this email. Please reach out to your
                                   contact directly or in case of technical
                                   issues please reach out to our service team
@@ -340,9 +507,16 @@
                                   platform.tenera.app. By accessing the platform
                                   or reaching out to the service team, you agree
                                   to Digital Rocks GmbH’s applicable terms and
-                                  conditions.<!-- --><br /><br /><!-- --><!-- --><!-- -->Tenera / Digital
+                                  conditions.<!-- -->{{/if}}<br /><br />{{#if
+                                  (equals locale "de")}}<!-- -->Tenera / Digital
                                   Rocks GmbH, Schönhauser Allee 148, Berlin,
-                                  Berlin 10435, Germany<!-- -->
+                                  Berlin 10435, Deutschland<!-- -->{{/if}}<!-- -->{{#unless
+                                  locale}}<!-- -->Tenera / Digital Rocks GmbH,
+                                  Schönhauser Allee 148, Berlin, Berlin 10435,
+                                  Deutschland<!-- -->{{/unless}}<!-- -->{{#if
+                                  (equals locale "en")}}<!-- -->Tenera / Digital
+                                  Rocks GmbH, Schönhauser Allee 148, Berlin,
+                                  Berlin 10435, Germany<!-- -->{{/if}}
                                 </p>
                                 <p
                                   style="
@@ -357,20 +531,28 @@
                                   <a
                                     href="https://www.tenera.io/legal/imprint"
                                     style="color: #059e9b"
-                                    ><!-- --><!-- --><!-- -->Imprint<!-- --></a
+                                    >{{#if (equals locale "de")}}<!-- -->Impressum<!-- -->{{/if}}<!-- -->{{#unless
+                                    locale}}<!-- -->Impressum<!-- -->{{/unless}}<!-- -->{{#if
+                                    (equals locale "en")}}<!-- -->Imprint<!-- -->{{/if}}</a
                                   ><span style="color: #059e9b; margin: 0 6px"
                                     >|</span
                                   ><a
                                     href="https://en.tenera.io/agb"
                                     style="color: #059e9b"
-                                    ><!-- --><!-- --><!-- -->Terms and
-                                    Conditions<!-- --></a
+                                    >{{#if (equals locale "de")}}<!-- -->Allgmeine
+                                    Geschäftsbedingungen<!-- -->{{/if}}<!-- -->{{#unless
+                                    locale}}<!-- -->Allgmeine
+                                    Geschäftsbedingungen<!-- -->{{/unless}}<!-- -->{{#if
+                                    (equals locale "en")}}<!-- -->Terms and
+                                    Conditions<!-- -->{{/if}}</a
                                   ><span style="color: #059e9b; margin: 0 6px"
                                     >|</span
                                   ><a
                                     href="https://www.tenera.io/legal/datenschutzerklaerung"
                                     style="color: #059e9b"
-                                    ><!-- --><!-- --><!-- -->Data Policy<!-- --></a
+                                    >{{#if (equals locale "de")}}<!-- -->Datenschutzerklärung<!-- -->{{/if}}<!-- -->{{#unless
+                                    locale}}<!-- -->Datenschutzerklärung<!-- -->{{/unless}}<!-- -->{{#if
+                                    (equals locale "en")}}<!-- -->Data Policy<!-- -->{{/if}}</a
                                   ><br /> 
                                 </p>
                               </td>
