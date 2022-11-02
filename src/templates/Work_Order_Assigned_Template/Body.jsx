@@ -5,8 +5,6 @@ import Variable from '../../helpers/Variable'
 import AboutTenera from '../../shared/AboutTenera'
 import BottomText from '../../shared/BottomText'
 import Paragraph from '../../shared/Paragraph'
-import IfVariable from '../../helpers/IfVariable'
-import Each from '../../helpers/Each'
 
 const Body = () => (
   <>
@@ -21,10 +19,17 @@ const Body = () => (
               <Variable prefixText=" " name="sharedWithUserLastName" />,
             </p>
             <p>
-              <Variable name="ownerOrganizationName" /> hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
-              angenommen. Durch die Vernetzung wird Ihre Kommunikation und Zusammenarbeit in Projekten effizienter und
-              transparenter. Indem Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum Profil von{' '}
-              <Variable name="ownerOrganizationName" />.
+              <IfLocale locale="de">
+                Sie wurden von <Variable name="ownerOrganizationName" /> zur Zusammenarbeit am Auftrag{' '}
+                <Variable name="workOrderName" /> ein. Indem Sie auf “Auftrag ansehen” klicken, gelangen Sie automatisch
+                zur Tenera Plattform mit allen Informationen zum Auftrag. Eine Zusammenfassung der wichtigsten
+                Informationen können Sie bereits am Ende dieser Email sehen. Die Nutzung der Plattform ist für Sie
+                kostenlos.
+              </IfLocale>
+              <IfLocale locale="en">
+                The work order <Variable name="workOrderName" /> has been assigned to you by{' '}
+                <Variable name="ownerOrganizationName" />.
+              </IfLocale>
             </p>
             <ButtonConfirm
               titleLocaleDe="Auftrag ansehen"
@@ -67,7 +72,8 @@ const Body = () => (
                   <p style={{ marginBlockStart: 0 }}>
                     <strong>
                       <Variable name="constructionStartDate" />
-                      <Variable name="constructionEndDate" />,
+                      {' - '}
+                      <Variable name="constructionEndDate" />
                     </strong>
                   </p>
                 </li>

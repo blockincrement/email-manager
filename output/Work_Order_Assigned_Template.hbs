@@ -94,13 +94,28 @@
                 {{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
               </p>
               <p>
-                {{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
-                angenommen. Durch die Vernetzung wird Ihre Kommunikation und
-                Zusammenarbeit in Projekten effizienter und transparenter. Indem
-                Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum
-                Profil von<!-- -->
-                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
+                {{#if (equals locale "de")}}<!-- -->Sie wurden von
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
+                zur Zusammenarbeit am Auftrag<!-- -->
+                <!-- -->{{#if workOrderName}}<!-- -->{{workOrderName}}<!-- -->{{/if}}<!-- -->
+                ein. Indem Sie auf “Auftrag ansehen” klicken, gelangen Sie
+                automatisch zur Tenera Plattform mit allen Informationen zum
+                Auftrag. Eine Zusammenfassung der wichtigsten Informationen
+                können Sie bereits am Ende dieser Email sehen. Die Nutzung der
+                Plattform ist für Sie kostenlos.<!-- -->{{/if}}<!-- -->{{#unless
+                locale}}<!-- -->Sie wurden von
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
+                zur Zusammenarbeit am Auftrag<!-- -->
+                <!-- -->{{#if workOrderName}}<!-- -->{{workOrderName}}<!-- -->{{/if}}<!-- -->
+                ein. Indem Sie auf “Auftrag ansehen” klicken, gelangen Sie
+                automatisch zur Tenera Plattform mit allen Informationen zum
+                Auftrag. Eine Zusammenfassung der wichtigsten Informationen
+                können Sie bereits am Ende dieser Email sehen. Die Nutzung der
+                Plattform ist für Sie kostenlos.<!-- -->{{/unless}}<!-- -->{{#if
+                (equals locale "en")}}<!-- -->The work order
+                <!-- -->{{#if workOrderName}}<!-- -->{{workOrderName}}<!-- -->{{/if}}<!-- -->
+                has been assigned to you by<!-- -->
+                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.<!-- -->{{/if}}
               </p>
               <a
                 href="{{reviewWorkOrderURL}}"
@@ -183,8 +198,9 @@
                               <!-- -->{{/unless}}
                               <p style="margin-block-start: 0">
                                 <strong
-                                  >{{#if constructionStartDate}}<!-- -->{{constructionStartDate}}<!-- -->{{/if}}<!-- -->{{#if
-                                  constructionEndDate}}<!-- -->{{constructionEndDate}}<!-- -->{{/if}}<!-- -->,</strong
+                                  >{{#if constructionStartDate}}<!-- -->{{constructionStartDate}}<!-- -->{{/if}}<!-- -->
+                                  -
+                                  <!-- -->{{#if constructionEndDate}}<!-- -->{{constructionEndDate}}<!-- -->{{/if}}</strong
                                 >
                               </p>
                             </li>
