@@ -27,8 +27,8 @@ const Body = () => (
                 kostenlos.
               </IfLocale>
               <IfLocale locale="en">
-                The work order <Variable name="workOrderName" /> has been assigned to you by{' '}
-                <Variable name="ownerOrganizationName" />.
+                <Variable name="ownerOrganizationName" /> has assigned the work order <Variable name="workOrderName" />{' '}
+                to you.
               </IfLocale>
             </p>
             <ButtonConfirm

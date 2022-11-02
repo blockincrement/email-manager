@@ -112,10 +112,10 @@
                 Auftrag. Eine Zusammenfassung der wichtigsten Informationen
                 können Sie bereits am Ende dieser Email sehen. Die Nutzung der
                 Plattform ist für Sie kostenlos.<!-- -->{{/unless}}<!-- -->{{#if
-                (equals locale "en")}}<!-- -->The work order
+                (equals locale "en")}}<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
+                has assigned the work order
                 <!-- -->{{#if workOrderName}}<!-- -->{{workOrderName}}<!-- -->{{/if}}<!-- -->
-                has been assigned to you by<!-- -->
-                <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.<!-- -->{{/if}}
+                <!-- -->to you.<!-- -->{{/if}}
               </p>
               <a
                 href="{{reviewWorkOrderURL}}"
