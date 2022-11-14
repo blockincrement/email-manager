@@ -59,99 +59,120 @@
                         <tr>
                           <td style="padding: 0 0 30px 0"></td>
                         </tr>
-                        <div class="section intro" style="padding: 10px">
-                          <table width="100%">
-                            <tbody>
-                              <div>
-                                {{#if (equals locale "en")}}
-                                <p>
-                                  Hello
-                                  <!-- -->{{#if sharedWithUserFirstName}}<!-- -->{{sharedWithUserFirstName}}<!-- -->{{/if}}<!-- -->
-                                  <!-- -->{{#if sharedWithUserLastName}}<!-- -->{{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
-                                </p>
-                                <p>
-                                  you are now connected on Tenera with
-                                  <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
-                                </p>
-                                {{/if}}<!-- -->{{#if (equals locale "de")}}
-                                <p>
-                                  Hallo
-                                  <!-- -->{{#if sharedWithUserFirstName}}<!-- -->{{sharedWithUserFirstName}}<!-- -->{{/if}}<!-- -->
-                                  <!-- -->{{#if sharedWithUserLastName}}<!-- -->{{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
-                                </p>
-                                <p>
-                                  Sie sind jetzt auf Tenera mit
-                                  <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                                  vernetzt.<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                                  hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform angenommen. Durch die Vernetzung wird Ihre Kommunikation und Zusammenarbeit in Projekten effizienter und transparenter. Indem Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum Profil von<!-- -->
-                                  <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
-                                </p>
-                                {{/if}}<!-- -->{{#unless locale}}
-                                <p>
-                                  Hallo
-                                  <!-- -->{{#if sharedWithUserFirstName}}<!-- -->{{sharedWithUserFirstName}}<!-- -->{{/if}}<!-- -->
-                                  <!-- -->{{#if sharedWithUserLastName}}<!-- -->{{sharedWithUserLastName}}<!-- -->{{/if}}<!-- -->,
-                                </p>
-                                <p>
-                                  Sie sind jetzt auf Tenera mit
-                                  <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                                  vernetzt.<!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->
-                                  hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform angenommen. Durch die Vernetzung wird Ihre Kommunikation und Zusammenarbeit in Projekten effizienter und transparenter. Indem Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum Profil von<!-- -->
-                                  <!-- -->{{#if ownerOrganizationName}}<!-- -->{{ownerOrganizationName}}<!-- -->{{/if}}<!-- -->.
-                                </p>
-                                {{/unless}}<a href="{{reviewContactURL}}" style="border-radius: 5px; background-color: #059e9b; mso-line-height-rule: exactly; font-size: 18px; font-family: Gilroy, Lato, Tahoma, sans-serif; font-weight: 600; line-height: 30px; margin: 0; text-transform: none; text-decoration: none; padding: 12px 18px; display: block; float: left" target="_blank" rel="noreferrer"
-                                  ><font color="#ffffff">{{#if (equals locale "de")}}<!-- -->Profil ansehen<!-- -->{{/if}}<!-- -->{{#unless locale}}<!-- -->Profil ansehen<!-- -->{{/unless}}<!-- -->{{#if (equals locale "en")}}<!-- -->Review company profile<!-- -->{{/if}}</font></a
-                                ><br />
-                              </div>
-                            </tbody>
-                          </table>
-                        </div>
-                        {{#if (equals locale "en")}}
-                        <div style="width: 100%; min-width: 280px; max-width: 600px; background-color: #ffffff; margin: 0 auto">
-                          <div class="section text" style="padding: 10px">
-                            <table width="100%">
+                        <tr>
+                          <td bgcolor="#ffffff" style="padding: 24px 24px 0 24px; background-color: #ffffff; border: 1px solid #e8e8e8; border-radius: 4px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tbody>
                                 <tr>
-                                  <td align="left">
-                                    <h4>What is Tenera?</h4>
-                                    Tenera connects general contractors with subcontractors, allowing them to work together seamlessly on the platform throughout the construction journey phases. Project communication and documentation is saved centrally, so that everything can be found in one place.<br />
+                                  <td style="padding: 0 0 24px 0"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: bold; color: #262626">{{requesterOrganizationName}} fragt {{#if (equals requestCount "1")}}einen{{else}} {{@root.requestCount}} {{/if}} Bescheinigungen vor</div></td>
+                                </tr>
+                                <tr>
+                                  <td style="padding: 0 0 24px 0">
+                                    {{#unless messageTemplate}}
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #595959; line-height: 22px">
+                                      Guten Tag, <br />bitte reichen Sie dringend
+                                      <!-- -->{{#if (equals requestCount "1")}}<!-- -->den aufgelisteten Bescheinigung<!-- -->{{else}}<!-- -->die aufgelisteten Bescheinigungen<!-- -->{{/if}}<!-- -->
+                                      ein. Vielen Dank!
+                                    </div>
+                                    {{/unless}}<!-- -->{{#if messageTemplate}}<!-- -->{{messageTemplate}}<!-- -->{{/if}}
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="padding: 0 0 24px 0">
+                                    <table border="0" cellpadding="0" cellspacing="0" class="wrapper-mobile" style="text-align: center">
+                                      <tbody>
+                                        <tr>
+                                          <td align="center" bgcolor="#059E9B" style="border-radius: 6px; font-size: 16px; text-align: left; background-color: #059e9b"><a href="{{certificateSubmissionUrl}}" style="background-color: #059e9b; border: 1px solid #059e9b; border-color: #059e9b; border-radius: 4px; border-width: 1px; color: #ffffff; display: inline-block; font-size: 14px; font-weight: bold; letter-spacing: 0px; line-height: normal; padding: 12px 18px 12px 18px; text-align: center; text-decoration: none; border-style: solid; font-family: Arial, Helvetica, sans-serif" target="_blank" rel="noreferrer">Bescheinigungen hochladen</a></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
                                   </td>
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                        {{/if}}<!-- -->{{#if (equals locale "de")}}
-                        <div style="width: 100%; min-width: 280px; max-width: 600px; background-color: #ffffff; margin: 0 auto">
-                          <div class="section text" style="padding: 10px">
-                            <table width="100%">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 0 32px 0"></td>
+                        </tr>
+                        <tr>
+                          <td bgcolor="#ffffff" style="padding: 24px 24px 0 24px; background-color: #ffffff; border: 1px solid #e8e8e8; border-radius: 4px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tbody>
                                 <tr>
-                                  <td align="left">
-                                    <h4>Was ist Tenera?</h4>
-                                    Tenera verbindet ausschreibende Auftraggeber mit Auftragnehmern. Alle notwendigen Informationen zu Ausschreibungen und Aufträgen sind an einem Ort verfügbar. Subunternehmer können auf Tenera mit Generalunternehmern an Projekten in einem zentralisierten System zusammenarbeiten und kommunizieren.<br />
+                                  <td style="padding: 0 0 24px 0">
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: bold; color: #262626">{{#if (equals locale "de")}}<!-- -->Angefragte Bescheinigungen<!-- -->{{/if}}<!-- -->{{#unless locale}}<!-- -->Angefragte Bescheinigungen<!-- -->{{/unless}}</div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="padding: 0 0 24px 0">
+                                    {{#if certificateTypeName}}
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #595959; line-height: 22px"><strong>{{certificateTypeName}}</strong></div>
+                                    {{/if}}<!-- -->{{#if messageTemplate}}<!-- -->{{messageTemplate}}<!-- -->{{/if}}
                                   </td>
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                        {{/if}}<!-- -->{{#unless locale}}
-                        <div style="width: 100%; min-width: 280px; max-width: 600px; background-color: #ffffff; margin: 0 auto">
-                          <div class="section text" style="padding: 10px">
-                            <table width="100%">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 0 32px 0"></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 24px 0 24px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
                               <tbody>
                                 <tr>
-                                  <td align="left">
-                                    <h4>Was ist Tenera?</h4>
-                                    Tenera verbindet ausschreibende Auftraggeber mit Auftragnehmern. Alle notwendigen Informationen zu Ausschreibungen und Aufträgen sind an einem Ort verfügbar. Subunternehmer können auf Tenera mit Generalunternehmern an Projekten in einem zentralisierten System zusammenarbeiten und kommunizieren.<br />
+                                  <td style="padding: 0 0 0 0">
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #262626; line-height: 18px; font-weight: bold">{{#if requesterName}}<!-- -->{{requesterName}}<!-- -->{{/if}}</div>
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #595959; line-height: 18px">{{#if requesterPosition}}<!-- -->{{requesterPosition}}<!-- -->{{/if}}</div>
                                   </td>
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                        {{/unless}}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 0 24px 0"></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 24px 0 24px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tbody>
+                                <tr>
+                                  <td style="padding: 0 0 0 0">
+                                    {{#if requesterPhone}}
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #595959; line-height: 18px"><a href="tel:{{requesterPhone}}" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #059e9b; text-decoration: none">{{requesterPhone}}</a></div>
+                                    {{/if}}<!-- -->{{#if requesterEmail}}
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #595959; line-height: 18px"><a href="mailto:{{requesterEmail}}" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #059e9b; text-decoration: none; line-height: 18px">{{requesterEmail}}</a></div>
+                                    {{/if}}
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 0 32px 0"></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 24px 0 24px">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tbody>
+                                <tr>
+                                  <td style="padding: 0 0 16px 0">
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #262626">{{#if (equals locale "en")}}<!-- -->What is Tenera?<!-- -->{{/if}}<!-- -->{{#if (equals locale "de")}}<!-- -->Was ist Tenera?<!-- -->{{/if}}<!-- -->{{#unless locale}}<!-- -->Was ist Tenera?<!-- -->{{/unless}}</div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td style="padding: 0 0 0 0">
+                                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #595959; line-height: 20px">{{#if (equals locale "en")}}<!-- -->Tenera connects general contractors with subcontractors, allowing them to work together seamlessly on the platform throughout the construction journey phases. Project communication and documentation is saved centrally, so that everything can be found in one place.<!-- -->{{/if}}<!-- -->{{#if (equals locale "de")}}<!-- -->Tenera verbindet ausschreibende Auftraggeber mit Auftragnehmern. Alle notwendigen Informationen zu Ausschreibungen und Aufträgen sind an einem Ort verfügbar. Subunternehmer können auf Tenera mit Generalunternehmern an Projekten in einem zentralisierten System zusammenarbeiten und kommunizieren.<!-- -->{{/if}}<!-- -->{{#unless locale}}<!-- -->Tenera verbindet ausschreibende Auftraggeber mit Auftragnehmern. Alle notwendigen Informationen zu Ausschreibungen und Aufträgen sind an einem Ort verfügbar. Subunternehmer können auf Tenera mit Generalunternehmern an Projekten in einem zentralisierten System zusammenarbeiten und kommunizieren.<!-- -->{{/unless}}</div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
                         <tr>
                           <td style="padding: 0 0 30px 0"></td>
                         </tr>

@@ -4,8 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
-  overrides: [
-  ],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
   },
@@ -22,6 +21,7 @@ module.exports = {
     'jsx-a11y/html-has-lang': 'off',
     'react/no-unknown-property': 'off',
     'react/function-component-definition': 'off',
-    'react/forbid-prop-types': 'off'
-  }
-};
+    'react/forbid-prop-types': 'off',
+    'react/no-danger': 'off',
+  },
+}
