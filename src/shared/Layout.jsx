@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 const fontStyle = {
   fontFamily: 'Gilroy, Lato, Tahoma, sans-serif',
 }
+const ReactComment = ({ text }) => <div dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />
+
 const Layout = ({ title, header, body, footer }) => (
   <html>
     <title>{title}</title>
@@ -20,7 +22,7 @@ const Layout = ({ title, header, body, footer }) => (
           minWidth: '280px',
           maxWidth: '600px',
           backgroundColor: '#ffffff',
-          margin: '15 auto 0 auto',
+          margin: '0 auto',
         }}
       >
         <div className="section menu">
@@ -59,6 +61,7 @@ const Layout = ({ title, header, body, footer }) => (
       >
         {body}
         <div className="hse-section" id="section_1616761784046" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+          <ReactComment text={'[if !((mso)|(IE))]>'} />
           {/* [if !((mso)|(IE))]> */}
           <div
             bgcolor="#FFFFFF"
@@ -76,26 +79,35 @@ const Layout = ({ title, header, body, footer }) => (
               paddingTop: '0px',
             }}
           >
-            {/* <![endif] */}
-            {/* [if (mso)|(IE)]>
+            <ReactComment text={' <![endif]'} /> {/* <![endif] */}
+            <ReactComment
+              text={` [if (mso)|(IE)]>
         <div class="hse-column-container"
              style="min-width:280px;max-width:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:collapse;border-spacing:0;">
           <table align="center" style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:600px;"
                  cellpadding="0" cellspacing="0" role="presentation" width="600" bgcolor="#FFFFFF">
             <tr style="background-color:#FFFFFF;">
-        <![endif] */}
-            {/* [if (mso)|(IE)]>
+        <![endif]`}
+            />
+            <ReactComment
+              text={` [if (mso)|(IE)]>
         <td valign="top" style="width:200px;padding-bottom:40px; padding-top:0px;">
-        <![endif] */}
-            {/* [if gte mso 9]>
+        <![endif]`}
+            />
+            <ReactComment
+              text={` [if gte mso 9]>
         <table role="presentation" width="200" cellpadding="0" cellspacing="0"
                style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:200px">
-        <![endif] */}
+        <![endif]`}
+            />
             <div className="hse-column hse-size-4" id="column_1616761784046_0">
-              {/* [if gte mso 9]></table><![endif] */}
-              {/* [if (mso)|(IE)]></td><![endif] */}
-              {/* [if (mso)|(IE)]></tr></table>
-          <![endif] */}
+
+              <ReactComment text={` [if gte mso 9]></table><![endif]`} />
+              <ReactComment text={` [if (mso)|(IE)]></td><![endif]`} />
+              <ReactComment
+                text={` [if (mso)|(IE)]></tr></table>
+          <![endif]`}
+              />
             </div>
           </div>
           <div className="hse-column hse-size-8" id="column_1616761784046_1">
@@ -114,10 +126,11 @@ const Layout = ({ title, header, body, footer }) => (
               <tbody />
             </table>
           </div>
-          {/* [if gte mso 9]></table><![endif] */}
-          {/* [if (mso)|(IE)]></td><![endif] */}
-          {/* [if (mso)|(IE)]></tr></table>
-      <![endif] */}
+          <ReactComment text={` [if gte mso 9]></table><![endif]`} />
+          <ReactComment text={` [if (mso)|(IE)]></td><![endif]`} />
+          <ReactComment text={` [if (mso)|(IE)]></tr></table>
+      <![endif]`}
+          />
         </div>
         {footer}
       </div>

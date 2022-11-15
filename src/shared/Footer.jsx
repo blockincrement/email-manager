@@ -3,8 +3,8 @@ import IfLocale from '../helpers/IfLocale'
 
 const LOC_FOOTER_TEXT_DE = `Diese Kommunikation erfolgt über die von Digital Rocks GmbH hierfür unter platform.tenera.app bereitgestellte Plattform. Mit Ihrem Zugang zur Plattform oder Ihrer Kontaktaufnahme mit dem Service Team stimmen Sie gegenüber Digital Rocks GmbH den hierfür geltenden allgemeinen Geschäftsbedingungen zu.`
 const LOC_FOOTER_TEXT_EN = `You cannot reply to this email. Please reach out to your contact directly or in case of technical issues please reach out to our service team via service@tenera.io. This communication takes place via the platform provided by Digital Rocks GmbH for this purpose at platform.tenera.app. By accessing the platform or reaching out to the service team, you agree to Digital Rocks GmbH’s applicable terms and conditions.`
-const LOC_TENERA_ADDRESS_DE = `Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin, Berlin 10435, Deutschland`
-const LOC_TENERA_ADDRESS_EN = `Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin, Berlin 10435, Germany`
+const LOC_TENERA_ADDRESS_DE = `Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin 10435, Deutschland`
+const LOC_TENERA_ADDRESS_EN = `Tenera / Digital Rocks GmbH, Schönhauser Allee 148, Berlin 10435, Germany`
 const LOC_IMPRINT_DE = `Impressum`
 const LOC_IMPRINT_EN = `Imprint`
 const LOC_TAC_DE = `Allgmeine Geschäftsbedingungen`
