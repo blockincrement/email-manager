@@ -7,7 +7,7 @@ const Header = () => (
       minWidth: '280px',
       maxWidth: '600px',
       backgroundColor: '#ffffff',
-      margin: '20px auto 0 auto',
+      margin: '0 auto',
     }}
   >
     <div

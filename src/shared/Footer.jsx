@@ -1,5 +1,6 @@
 import React from 'react'
 import IfLocale from '../helpers/IfLocale'
+import HTMLComment from './HTMLComment'
 
 const LOC_FOOTER_TEXT_DE = `Diese Kommunikation erfolgt über die von Digital Rocks GmbH hierfür unter platform.tenera.app bereitgestellte Plattform. Mit Ihrem Zugang zur Plattform oder Ihrer Kontaktaufnahme mit dem Service Team stimmen Sie gegenüber Digital Rocks GmbH den hierfür geltenden allgemeinen Geschäftsbedingungen zu.`
 const LOC_FOOTER_TEXT_EN = `You cannot reply to this email. Please reach out to your contact directly or in case of technical issues please reach out to our service team via service@tenera.io. This communication takes place via the platform provided by Digital Rocks GmbH for this purpose at platform.tenera.app. By accessing the platform or reaching out to the service team, you agree to Digital Rocks GmbH’s applicable terms and conditions.`
@@ -14,6 +15,7 @@ const LOC_DATA_POLICY_EN = `Data Policy`
 
 const Footer = () => (
   <div className="hse-section hse-section-last" id="section-6">
+    <HTMLComment text="[if !((mso)|(IE))]>" />
     {/* <!--    [if !((mso)|(IE))]>--> */}
     <div
       bgcolor="#00282b"
@@ -30,6 +32,7 @@ const Footer = () => (
         paddingTop: '10px',
       }}
     >
+      <HTMLComment text="<![endif][if (mso)|(IE)]>" />
       {/* <!--    <![endif][if (mso)|(IE)]>--> */}
       <div
         className="hse-column-container"
@@ -53,8 +56,12 @@ const Footer = () => (
           bgcolor="#00282b"
         >
           <tr style={{ backgroundColor: '#00282b' }}>
+          <HTMLComment text="<![endif][if (mso)|(IE)]>" />
+
             {/* <!--          <![endif][if (mso)|(IE)]>--> */}
             <td valign="top" style={{ width: '600px', paddingTop: '30px' }}>
+            <HTMLComment text="<![endif][if gte mso 9]>" />
+
               {/* <!--            <![endif][if gte mso 9]>--> */}
               <table
                 role="presentation"
@@ -68,6 +75,8 @@ const Footer = () => (
                   width: '600px',
                 }}
               >
+                <HTMLComment text="<![endif]" />
+
                 {/* <!--              <![endif]--> */}
                 <div className="hse-column hse-size-12" id="column-6-0">
                   <div
@@ -173,13 +182,21 @@ const Footer = () => (
                     </table>
                   </div>
                 </div>
+                <HTMLComment text="[if gte mso 9]>" />
+
                 {/* <!-- [if gte mso 9]>--> */}
               </table>
+              <HTMLComment text="<![endif][if (mso)|(IE)]>" />
+
               {/* <!-- <![endif][if (mso)|(IE)]>--> */}
             </td>
+            <HTMLComment text="<![endif][if (mso)|(IE)]>" />
+
             {/* <!--<![endif][if (mso)|(IE)]>--> */}
           </tr>
         </table>
+        <HTMLComment text="<![endif]</div>" />
+
         {/* <!--  <![endif]</div>--> */}
       </div>
     </div>

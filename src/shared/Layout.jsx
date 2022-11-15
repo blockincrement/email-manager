@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import HTMLComment from './HTMLComment'
 
 const fontStyle = {
   fontFamily: 'Gilroy, Lato, Tahoma, sans-serif',
 }
-const ReactComment = ({ text }) => <div dangerouslySetInnerHTML={{ __html: `<!-- ${text} -->` }} />
 
 const Layout = ({ title, header, body, footer }) => (
   <html>
@@ -61,7 +61,7 @@ const Layout = ({ title, header, body, footer }) => (
       >
         {body}
         <div className="hse-section" id="section_1616761784046" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
-          <ReactComment text={'[if !((mso)|(IE))]>'} />
+          <HTMLComment text="[if !((mso)|(IE))]>" />
           {/* [if !((mso)|(IE))]> */}
           <div
             bgcolor="#FFFFFF"
@@ -79,8 +79,8 @@ const Layout = ({ title, header, body, footer }) => (
               paddingTop: '0px',
             }}
           >
-            <ReactComment text={' <![endif]'} /> {/* <![endif] */}
-            <ReactComment
+            <HTMLComment text=" <![endif]" /> {/* <![endif] */}
+            <HTMLComment
               text={` [if (mso)|(IE)]>
         <div class="hse-column-container"
              style="min-width:280px;max-width:600px;width:100%;Margin-left:auto;Margin-right:auto;border-collapse:collapse;border-spacing:0;">
@@ -89,22 +89,21 @@ const Layout = ({ title, header, body, footer }) => (
             <tr style="background-color:#FFFFFF;">
         <![endif]`}
             />
-            <ReactComment
+            <HTMLComment
               text={` [if (mso)|(IE)]>
         <td valign="top" style="width:200px;padding-bottom:40px; padding-top:0px;">
         <![endif]`}
             />
-            <ReactComment
+            <HTMLComment
               text={` [if gte mso 9]>
         <table role="presentation" width="200" cellpadding="0" cellspacing="0"
                style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;width:200px">
         <![endif]`}
             />
             <div className="hse-column hse-size-4" id="column_1616761784046_0">
-
-              <ReactComment text={` [if gte mso 9]></table><![endif]`} />
-              <ReactComment text={` [if (mso)|(IE)]></td><![endif]`} />
-              <ReactComment
+              <HTMLComment text={` [if gte mso 9]></table><![endif]`} />
+              <HTMLComment text={` [if (mso)|(IE)]></td><![endif]`} />
+              <HTMLComment
                 text={` [if (mso)|(IE)]></tr></table>
           <![endif]`}
               />
@@ -126,9 +125,10 @@ const Layout = ({ title, header, body, footer }) => (
               <tbody />
             </table>
           </div>
-          <ReactComment text={` [if gte mso 9]></table><![endif]`} />
-          <ReactComment text={` [if (mso)|(IE)]></td><![endif]`} />
-          <ReactComment text={` [if (mso)|(IE)]></tr></table>
+          <HTMLComment text={` [if gte mso 9]></table><![endif]`} />
+          <HTMLComment text={` [if (mso)|(IE)]></td><![endif]`} />
+          <HTMLComment
+            text={` [if (mso)|(IE)]></tr></table>
       <![endif]`}
           />
         </div>
