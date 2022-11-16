@@ -6,7 +6,7 @@ const fontStyle = {
   fontFamily: 'Gilroy, Lato, Tahoma, sans-serif',
 }
 
-const Layout = ({ title, header, body, footer }) => (
+const MarketingLayout = ({ title, header, content, footer }) => (
   <html>
     <title>{title}</title>
     <head />
@@ -59,7 +59,7 @@ const Layout = ({ title, header, body, footer }) => (
           padding: '20px 0 0 0',
         }}
       >
-        {body}
+        {content}
         <div className="hse-section" id="section_1616761784046" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
           <HTMLComment text="[if !((mso)|(IE))]>" />
           {/* [if !((mso)|(IE))]> */}
@@ -138,18 +138,18 @@ const Layout = ({ title, header, body, footer }) => (
   </html>
 )
 
-Layout.propTypes = {
+MarketingLayout.propTypes = {
   title: PropTypes.node,
   header: PropTypes.node,
-  body: PropTypes.node,
+  content: PropTypes.node,
   footer: PropTypes.node,
 }
 
-Layout.defaultProps = {
+MarketingLayout.defaultProps = {
   title: '',
   header: '',
-  body: '',
+  content: '',
   footer: '',
 }
 
-export default Layout
+export default MarketingLayout

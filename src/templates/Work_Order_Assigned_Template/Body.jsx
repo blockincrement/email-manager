@@ -5,6 +5,13 @@ import Variable from '../../helpers/Variable'
 import AboutTenera from '../../shared/AboutTenera'
 import BottomText from '../../shared/BottomText'
 import Paragraph from '../../shared/Paragraph'
+import MarketingLayout from '../../shared/MarketingLayout'
+import MarketingHeader from '../../shared/MarketingHeader'
+import MarketingFooter from '../../shared/MarketingFooter'
+
+export const Layout = <MarketingLayout />
+export const Header = <MarketingHeader />
+export const Footer = <MarketingFooter />
 
 const Body = () => (
   <>

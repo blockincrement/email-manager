@@ -5,10 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'url'
 import Handlebars from 'handlebars'
 import prettier from 'prettier'
 
-import Footer from './src/layouts/Footer'
-
 import { templatesUrl, rootDir, outputDir, previewDir } from './src/config'
-import LayoutHtml from './src/layouts/LayoutHtml'
 
 Handlebars.registerHelper('equals', (arg1, arg2) => arg1 === arg2)
 
@@ -29,10 +26,14 @@ const importTemplateComponents = async templateName => {
     const Body = await import(`./src/templates/${templateName}/Body`)
 
     return {
-      // Title: Title?.default,
+      Title: 'Title?.default',
+      Header: Body.Header,
+      Footer: Body.Footer,
+      Layout: Body.Layout,
       Body: Body?.default,
     }
   } catch (err) {
+    console.log(`--> Error catching:: `, err)
     return {}
   }
 }
@@ -41,14 +42,16 @@ const loopFilesInTemplate = async templateName => {
   const currentOutputDir = `${rootDir}/${outputDir}/${templateName}`
   const currentPreviewDir = `${rootDir}/${previewDir}/${templateName}`
 
-  const { Body } = await importTemplateComponents(templateName)
+  const { Body, Title, Layout, Header, Footer } = await importTemplateComponents(templateName)
 
   if (!Body) {
     return
   }
   const { testData } = await importTestData(templateName)
 
-  const htmlRaw = renderToString(<LayoutHtml content={<Body />} footer={<Footer />} />)
+  const htmlRaw = renderToString(
+    <Layout title={<Title />} header={<Header />} content={<Body />} footer={<Footer />} />,
+  )
 
   try {
     const html = htmlRaw

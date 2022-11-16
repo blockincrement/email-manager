@@ -13,7 +13,7 @@ const LOC_TAC_EN = `Terms and Conditions`
 const LOC_DATA_POLICY_DE = `Datenschutzerklärung`
 const LOC_DATA_POLICY_EN = `Data Policy`
 
-const Footer = () => (
+const MarketingFooter = () => (
   <div className="hse-section hse-section-last" id="section-6">
     <HTMLComment text="[if !((mso)|(IE))]>" />
     {/* <!--    [if !((mso)|(IE))]>--> */}
@@ -203,4 +203,4 @@ const Footer = () => (
   </div>
 )
 
-export default Footer
+export default MarketingFooter
