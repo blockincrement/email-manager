@@ -5,11 +5,10 @@ import { fileURLToPath, pathToFileURL } from 'url'
 import Handlebars from 'handlebars'
 import prettier from 'prettier'
 
-import Layout from './src/shared/Layout'
-import Header from './src/shared/Header'
-import Footer from './src/shared/Footer'
+import Footer from './src/layouts/Footer'
 
 import { templatesUrl, rootDir, outputDir, previewDir } from './src/config'
+import LayoutHtml from './src/layouts/LayoutHtml'
 
 Handlebars.registerHelper('equals', (arg1, arg2) => arg1 === arg2)
 
@@ -26,10 +25,11 @@ const importTestData = async templateName => {
 
 const importTemplateComponents = async templateName => {
   try {
-    const Title = await import(`./src/templates/${templateName}/Title`)
+    // const Title = await import(`./src/templates/${templateName}/Title`)
     const Body = await import(`./src/templates/${templateName}/Body`)
+
     return {
-      Title: Title?.default,
+      // Title: Title?.default,
       Body: Body?.default,
     }
   } catch (err) {
@@ -41,19 +41,32 @@ const loopFilesInTemplate = async templateName => {
   const currentOutputDir = `${rootDir}/${outputDir}/${templateName}`
   const currentPreviewDir = `${rootDir}/${previewDir}/${templateName}`
 
-  const { Title, Body } = await importTemplateComponents(templateName)
+  const { Body } = await importTemplateComponents(templateName)
 
-  if (!Title || !Body) {
+  if (!Body) {
     return
   }
-
   const { testData } = await importTestData(templateName)
 
-  const htmlRaw = renderToString(<Layout title={<Title />} header={<Header />} body={<Body />} footer={<Footer />} />)
+  const htmlRaw = renderToString(<LayoutHtml content={<Body />} footer={<Footer />} />)
 
   try {
-    const html = htmlRaw.replace(/&quot;/g, '"')
-    const formattedCode = prettier.format(html, { parser: 'html' })
+    const html = htmlRaw
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+
+    const formattedCode = prettier.format(html, {
+      parser: 'html',
+      arrowParens: 'avoid',
+      endOfLine: 'auto',
+      semi: false,
+      singleQuote: true,
+      tabWidth: 2,
+      trailingComma: 'all',
+      jsxSingleQuote: false,
+      printWidth: 2000,
+    })
 
     // validate that generated html is valid Handlebars template and can work in the SendGrid
     const template = Handlebars.compile(formattedCode)

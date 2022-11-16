@@ -11,7 +11,9 @@
     "serve:preact": "http-server -c-1 . -o output/preact/home.preact.html",
     "clean": "rimraf output",
     "rebuild": "rimraf output && node renderers/htm-react-renderer.js -t templates/react/ -o output/react/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --check \"**/*.{jsx,js}\"",
+    "format:fix": "prettier --write \"**/*.{jsx,js}\""
   },
   "author": "",
   "license": "ISC",

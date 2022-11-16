@@ -56,11 +56,11 @@ const Footer = () => (
           bgcolor="#00282b"
         >
           <tr style={{ backgroundColor: '#00282b' }}>
-          <HTMLComment text="<![endif][if (mso)|(IE)]>" />
+            <HTMLComment text="<![endif][if (mso)|(IE)]>" />
 
             {/* <!--          <![endif][if (mso)|(IE)]>--> */}
             <td valign="top" style={{ width: '600px', paddingTop: '30px' }}>
-            <HTMLComment text="<![endif][if gte mso 9]>" />
+              <HTMLComment text="<![endif][if gte mso 9]>" />
 
               {/* <!--            <![endif][if gte mso 9]>--> */}
               <table
