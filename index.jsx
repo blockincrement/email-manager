@@ -22,15 +22,14 @@ const importTestData = async templateName => {
 
 const importTemplateComponents = async templateName => {
   try {
-    // const Title = await import(`./src/templates/${templateName}/Title`)
-    const Body = await import(`./src/templates/${templateName}/Body`)
-
+    const Title = await import(`./src/templates/${templateName}/Title`)
+    const { Header, Layout, Footer, default: Body } = await import(`./src/templates/${templateName}/Body`)
     return {
-      Title: 'Title?.default',
-      Header: Body.Header,
-      Footer: Body.Footer,
-      Layout: Body.Layout,
-      Body: Body?.default,
+      Title: Title?.default,
+      Header,
+      Footer,
+      Layout,
+      Body,
     }
   } catch (err) {
     console.log(`--> Error catching:: `, err)

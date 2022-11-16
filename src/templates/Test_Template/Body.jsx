@@ -11,8 +11,8 @@ import AboutTenera from '../../components/AboutTenera'
 import LayoutHtml from '../../layouts/LayoutHtml'
 import FooterClassic from '../../layouts/FooterClassic'
 
-export const Layout = <LayoutHtml />
-export const Footer = <FooterClassic />
+export const Layout = LayoutHtml
+export const Footer = FooterClassic
 
 const Body = () => (
   <>
