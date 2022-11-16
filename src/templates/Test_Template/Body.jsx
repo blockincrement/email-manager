@@ -8,6 +8,11 @@ import Spacer from '../../components/Spacer'
 import IfLocale from '../../helpers/IfLocale'
 import IfVariable from '../../helpers/IfVariable'
 import AboutTenera from '../../components/AboutTenera'
+import LayoutHtml from '../../layouts/LayoutHtml'
+import FooterClassic from '../../layouts/FooterClassic'
+
+export const Layout = <LayoutHtml />
+export const Footer = <FooterClassic />
 
 const Body = () => (
   <>

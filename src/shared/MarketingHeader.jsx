@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => (
+const MarketingHeader = () => (
   <div
     style={{
       width: '100%',
@@ -42,4 +42,4 @@ const Header = () => (
   </div>
 )
 
-export default Header
+export default MarketingHeader

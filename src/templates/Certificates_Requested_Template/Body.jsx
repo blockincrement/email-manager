@@ -1,11 +1,17 @@
 import React from 'react'
 import Variable from '../../helpers/Variable'
 import ButtonConfirm from '../../shared/ButtonConfirm'
-import IfVariable from '../../helpers/IfVariable'
 import Paragraph from '../../shared/Paragraph'
 import Each from '../../helpers/Each'
 import AboutTenera from '../../shared/AboutTenera'
 import BottomText from '../../shared/BottomText'
+import MarketingLayout from '../../shared/MarketingLayout'
+import MarketingHeader from '../../shared/MarketingHeader'
+import MarketingFooter from '../../shared/MarketingFooter'
+
+export const Layout = <MarketingLayout />
+export const Header = <MarketingHeader />
+export const Footer = <MarketingFooter />
 
 const Body = () => (
   <>

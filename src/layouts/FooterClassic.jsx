@@ -5,7 +5,7 @@ import Paragraph from '../components/Paragraph'
 import Spacer from '../components/Spacer'
 import IfLocale from '../helpers/IfLocale'
 
-const Footer = () => (
+const FooterClassic = () => (
   <>
     <Divider />
     <Spacer size={24} />
@@ -118,4 +118,4 @@ const Footer = () => (
   </>
 )
 
-export default Footer
+export default FooterClassic
