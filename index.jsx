@@ -49,12 +49,13 @@ const loopFilesInTemplate = async templateName => {
   const { testData } = await importTestData(templateName)
 
   const htmlRaw = renderToString(<LayoutHtml content={<Body />} footer={<Footer />} />)
-    .replace(/&quot;/g, '"')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
 
   try {
     const html = htmlRaw
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+
     const formattedCode = prettier.format(html, {
       parser: 'html',
       arrowParens: 'avoid',
