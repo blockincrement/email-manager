@@ -17,7 +17,8 @@ export const Footer = FooterClassic
 
 const Body = () => (
   <>
-    <Card title="{{requesterOrganizationName}} bittet Sie, eine neue Version von {{numberOfCertificatesRequested}} Bescheinigung(en) bereitzustellen."
+    <Card
+      title="{{requesterOrganizationName}} bittet Sie, eine neue Version von {{numberOfCertificatesRequested}} Bescheinigung(en) bereitzustellen."
       ctaButtonTitle="Bescheinigungen hochladen"
       ctaButtonUrl="{{certificateSubmissionUrl}}"
     >

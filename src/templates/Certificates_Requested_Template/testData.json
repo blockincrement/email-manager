@@ -15,5 +15,10 @@
   "requesterName": "Marlene Schmidt",
   "requesterPosition": "Bauleitung",
   "requesterPhone": "+49812345678-12",
-  "requesterEmail": "marleneschmidt@generalbau.com"
+  "requesterEmail": "marleneschmidt@generalbau.com",
+  "certificateTypeName": "Bescheinigung §13 UStG.",
+  "daysSinceRequest": "5",
+  "messageTemplate": "",
+  "requestCount": "1"
+
 }

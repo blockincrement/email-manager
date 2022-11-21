@@ -1,56 +1,68 @@
 import React from 'react'
+import Card from '../../components/Card'
+import UnlessVariable from '../../helpers/UnlessVariable'
 import Variable from '../../helpers/Variable'
-import ButtonConfirm from '../../shared/ButtonConfirm'
-import Paragraph from '../../shared/Paragraph'
+import Paragraph from '../../components/Paragraph'
+import RequesterInfo from '../../components/RequesterInfo'
+import Spacer from '../../components/Spacer'
 import Each from '../../helpers/Each'
-import AboutTenera from '../../shared/AboutTenera'
-import BottomText from '../../shared/BottomText'
-import MarketingLayout from '../../shared/MarketingLayout'
-import MarketingHeader from '../../shared/MarketingHeader'
-import MarketingFooter from '../../shared/MarketingFooter'
+import IfLocale from '../../helpers/IfLocale'
+import IfVariable from '../../helpers/IfVariable'
+import AboutTenera from '../../components/AboutTenera'
+import LayoutHtml from '../../layouts/LayoutHtml'
+import FooterClassic from '../../layouts/FooterClassic'
 
-export const Layout = MarketingLayout
-export const Header = MarketingHeader
-export const Footer = MarketingFooter
+export const Layout = LayoutHtml
+export const Footer = FooterClassic
 
 const Body = () => (
   <>
-    <div className="section intro" style={{ padding: '10px' }}>
-      <table width="100%">
-        <tbody>
-          <div>
-            <p>
-              <Variable name="message" />
-            </p>
-
-            <ButtonConfirm title="Bescheinigungen hochladen" hrefValue="{{certificateSubmissionUrl}}" />
+    <Card
+      title="{{companyName}} hat Bescheinigungen hochgeladen."
+      ctaButtonTitle="Bescheinigungen prüfen"
+      ctaButtonUrl="{{certificateProposalUrl}}"
+    >
+      <UnlessVariable name="messageTemplate">
+        <Paragraph>
+          <p>
+            <Variable name="message" />
+          </p>
+          <Paragraph title="Angefragte Bescheinigungen">
+            <ul>
+              <Each iterator="certificateCountAndTypes">
+                <li>
+                  <Variable name="this.name" />
+                </li>
+              </Each>
+            </ul>
+          </Paragraph>
+          <Paragraph>
+            <Variable name="requesterName" />
             <br />
+            <Variable name="requesterPosition" />
             <br />
-            <Paragraph title="Angefragte Bescheinigungen">
-              <ul>
-                <Each iterator="certificateCountAndTypes">
-                  <li>
-                    <Variable name="this.name" />
-                  </li>
-                </Each>
-              </ul>
-            </Paragraph>
-            <Paragraph>
-              <Variable name="requesterName" />
-              <br />
-              <Variable name="requesterPosition" />
-              <br />
-              <Variable name="requesterPhone" />
-              <br />
-              <Variable name="requesterEmail" />
-              <br />
-            </Paragraph>
-          </div>
-        </tbody>
-      </table>
-    </div>
+            <Variable name="requesterPhone" />
+            <br />
+            <Variable name="requesterEmail" />
+            <br />
+          </Paragraph>
+        </Paragraph>
+      </UnlessVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <Card title={<IfLocale locale="de">Angefragte Bescheinigungen</IfLocale>}>
+      <IfVariable name="certificateTypeName">
+        <Paragraph>
+          <strong>{`{{certificateTypeName}}`}</strong>
+        </Paragraph>
+      </IfVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <RequesterInfo />
+    <Spacer size={32} />
     <AboutTenera />
-    <BottomText />
   </>
 )
 
