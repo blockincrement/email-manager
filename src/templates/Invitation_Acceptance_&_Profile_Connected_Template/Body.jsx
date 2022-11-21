@@ -1,55 +1,67 @@
 import React from 'react'
-import IfLocale from '../../helpers/IfLocale'
+import Card from '../../components/Card'
+import UnlessVariable from '../../helpers/UnlessVariable'
 import Variable from '../../helpers/Variable'
-import ButtonConfirm from '../../shared/ButtonConfirm'
-import AboutTenera from '../../shared/AboutTenera'
-import BottomText from '../../shared/BottomText'
-import MarketingLayout from '../../shared/MarketingLayout'
-import MarketingHeader from '../../shared/MarketingHeader'
-import MarketingFooter from '../../shared/MarketingFooter'
+import Paragraph from '../../components/Paragraph'
+import RequesterInfo from '../../components/RequesterInfo'
+import Spacer from '../../components/Spacer'
+import Each from '../../helpers/Each'
+import IfLocale from '../../helpers/IfLocale'
+import IfVariable from '../../helpers/IfVariable'
+import AboutTenera from '../../components/AboutTenera'
+import LayoutHtml from '../../layouts/LayoutHtml'
+import FooterClassic from '../../layouts/FooterClassic'
 
-export const Layout = MarketingLayout
-export const Header = MarketingHeader
-export const Footer = MarketingFooter
+export const Layout = LayoutHtml
+export const Footer = FooterClassic
 
 const Body = () => (
   <>
-    <div className="section intro" style={{ padding: '10px' }}>
-      <table width="100%">
-        <tbody>
-          <div>
-            <IfLocale locale="en">
-              <p>
-                Hello <Variable name="sharedWithUserFirstName" /> <Variable name="sharedWithUserLastName" />,
-              </p>
-              <p>
-                you are now connected on Tenera with <Variable name="ownerOrganizationName" />.
-              </p>
-            </IfLocale>
-            <IfLocale locale="de">
-              <p>
-                Hallo <Variable name="sharedWithUserFirstName" /> <Variable name="sharedWithUserLastName" />,
-              </p>
-              <p>
-                Sie sind jetzt auf Tenera mit <Variable name="ownerOrganizationName" /> vernetzt.
-                <Variable name="ownerOrganizationName" /> hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
-                angenommen. Durch die Vernetzung wird Ihre Kommunikation und Zusammenarbeit in Projekten effizienter und
-                transparenter. Indem Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum Profil von{' '}
-                <Variable name="ownerOrganizationName" />.
-              </p>
-            </IfLocale>
-            <ButtonConfirm
-              titleLocaleDe="Profil ansehen"
-              titleLocaleEn="Review company profile"
-              hrefValue="{{reviewContactURL}}"
-            />
-            <br />
-          </div>
-        </tbody>
-      </table>
-    </div>
+    <Card
+      title={`{{#if (equals locale "de")}}{{{ownerOrganizationName}}} hat Ihre Einladung zur Vernetzung angenommen{{/if}}
+      {{#if (equals locale "en")}}{{{ownerOrganizationName}}} has accepted your invitation{{/if}}`}
+      ctaButtonTitle="Profil ansehen"
+      ctaButtonUrl="{{reviewContactURL}}"
+    >
+      <UnlessVariable name="messageTemplate">
+        <Paragraph>
+          <IfLocale locale="en">
+            <p>
+              Hello <Variable name="sharedWithUserFirstName" /> <Variable name="sharedWithUserLastName" />,
+            </p>
+            <p>
+              you are now connected on Tenera with <Variable name="ownerOrganizationName" />.
+            </p>
+          </IfLocale>
+          <IfLocale locale="de">
+            <p>
+              Hallo <Variable name="sharedWithUserFirstName" /> <Variable name="sharedWithUserLastName" />,
+            </p>
+            <p>
+              Sie sind jetzt auf Tenera mit <Variable name="ownerOrganizationName" /> vernetzt.
+              <Variable name="ownerOrganizationName" /> hat Ihre Einladung zur Zusammenarbeit auf der Tenera Plattform
+              angenommen. Durch die Vernetzung wird Ihre Kommunikation und Zusammenarbeit in Projekten effizienter und
+              transparenter. Indem Sie auf “Profil ansehen” klicken, gelangen Sie automatisch zum Profil von{' '}
+              <Variable name="ownerOrganizationName" />.
+            </p>
+          </IfLocale>
+        </Paragraph>
+      </UnlessVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <Card title={<IfLocale locale="de">Angefragte Bescheinigungen</IfLocale>}>
+      <IfVariable name="certificateTypeName">
+        <Paragraph>
+          <strong>{`{{certificateTypeName}}`}</strong>
+        </Paragraph>
+      </IfVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <RequesterInfo />
+    <Spacer size={32} />
     <AboutTenera />
-    <BottomText />
   </>
 )
 
