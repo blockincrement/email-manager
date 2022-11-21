@@ -1,8 +1,18 @@
 {
-  "locale": "en",
+  "locale": "de",
   "inviterCompanyName": "TestComp BAU",
   "message": "Guten Tag, TestComp BAU lädt Sie zur Zusammenarbeit auf der Tenera Plattform ein. Damit wird unsere Kommunikation und Zusammenarbeit transparenter und effizienter.",
   "inviterLastName": "Marie",
   "inviterFirstName": "Müller",
-  "inviterPosition": "manager"
+  "inviterPosition": "manager",
+  "requesterOrganizationName": "Generalbau GmbH",
+  "certificateTypeName": "Bescheinigung §13 UStG.",
+  "daysSinceRequest": "5",
+  "messageTemplate": "",
+  "requestCount": "1",
+  "certificateSubmissionUrl": "https://platform.dev.tenera.app/certificate-submission/?token=bWscf7s7M1lx2nGZM01otNk1Y6aW5TMuzL6rr11SM9anRjKaz5H4Abl6DzLJ8EQy",
+  "requesterName": "Marlene Schmidt",
+  "requesterPosition": "Bauleitung",
+  "requesterPhone": "+49812345678-12",
+  "requesterEmail": "marleneschmidt@generalbau.com"
 }

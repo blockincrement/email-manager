@@ -1,52 +1,60 @@
 import React from 'react'
-import ButtonConfirm from '../../shared/ButtonConfirm'
-import IfLocale from '../../helpers/IfLocale'
+import Card from '../../components/Card'
+import UnlessVariable from '../../helpers/UnlessVariable'
 import Variable from '../../helpers/Variable'
-import AboutTenera from '../../shared/AboutTenera'
-import BottomText from '../../shared/BottomText'
+import Paragraph from '../../components/Paragraph'
+import RequesterInfo from '../../components/RequesterInfo'
+import Spacer from '../../components/Spacer'
+import IfLocale from '../../helpers/IfLocale'
 import IfVariable from '../../helpers/IfVariable'
-import MarketingLayout from '../../shared/MarketingLayout'
-import MarketingHeader from '../../shared/MarketingHeader'
-import MarketingFooter from '../../shared/MarketingFooter'
+import AboutTenera from '../../components/AboutTenera'
+import LayoutHtml from '../../layouts/LayoutHtml'
+import FooterClassic from '../../layouts/FooterClassic'
 
-export const Layout = MarketingLayout
-export const Header = MarketingHeader
-export const Footer = MarketingFooter
+export const Layout = LayoutHtml
+export const Footer = FooterClassic
 
 const Body = () => (
   <>
-    <div className="section intro" style={{ padding: '10px' }}>
-      <table width="100%">
-        <tbody>
-          <div>
-            <p>
-              <IfLocale locale="de">Hallo</IfLocale>
-              <IfLocale locale="en">Hello</IfLocale>
-              <Variable prefixText=" " name="inviterFirstName" />
-              <Variable prefixText=" " name="inviterLastName" />
-              <IfVariable name="inviterCompanyName">
-                <Variable prefixText=" " name="inviterPosition" />
-              </IfVariable>
-              ,
-              <IfVariable name="inviterPosition">
-                <Variable prefixText=" " name="inviterCompanyName" />
-              </IfVariable>
-            </p>
-            <p>{`{{{message}}}`}</p>
-            <ButtonConfirm
-              titleLocaleDe="Einladung annehmen"
-              titleLocaleEn="Accept invite"
-              hrefValue="{{acceptInvitationURL}}"
-            />
-            <br />
-            <br />
-            <br />
-          </div>
-        </tbody>
-      </table>
-    </div>
+    <Card
+      title={`{{#if (equals locale "de")}} Ihre Zusammenarbeit mit {{{inviterCompanyName}}}wird digitaler.{{/if}}
+      {{#if (equals locale "en")}}{{{inviterCompanyName}}} is inviting you to collaborate on the Tenera platform.{{/if}}`}
+      ctaButtonTitle="Einladung annehmen"
+      ctaButtonUrl="{{acceptInvitationURL}}"
+    >
+      <UnlessVariable name="messageTemplate">
+        <Paragraph>
+          <p>
+            <IfLocale locale="de">Hallo</IfLocale>
+            <IfLocale locale="en">Hello</IfLocale>
+            <Variable prefixText=" " name="inviterFirstName" />
+            <Variable prefixText=" " name="inviterLastName" />
+            <IfVariable name="inviterCompanyName">
+              <Variable prefixText=" " name="inviterPosition" />
+            </IfVariable>
+            ,
+            <IfVariable name="inviterPosition">
+              <Variable prefixText=" " name="inviterCompanyName" />
+            </IfVariable>
+          </p>
+          <p>{`{{{message}}}`}</p>
+        </Paragraph>
+      </UnlessVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <Card title={<IfLocale locale="de">Angefragte Bescheinigungen</IfLocale>}>
+      <IfVariable name="certificateTypeName">
+        <Paragraph>
+          <strong>{`{{certificateTypeName}}`}</strong>
+        </Paragraph>
+      </IfVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <RequesterInfo />
+    <Spacer size={32} />
     <AboutTenera />
-    <BottomText />
   </>
 )
 
