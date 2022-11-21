@@ -23,10 +23,9 @@ const importTestData = async templateName => {
 const importTemplateComponents = async templateName => {
   try {
     const Title = await import(`./src/templates/${templateName}/Title`)
-    const { Header, Layout, Footer, default: Body } = await import(`./src/templates/${templateName}/Body`)
+    const { Layout, Footer, default: Body } = await import(`./src/templates/${templateName}/Body`)
     return {
       Title: Title?.default,
-      Header,
       Footer,
       Layout,
       Body,
@@ -41,16 +40,14 @@ const loopFilesInTemplate = async templateName => {
   const currentOutputDir = `${rootDir}/${outputDir}/${templateName}`
   const currentPreviewDir = `${rootDir}/${previewDir}/${templateName}`
 
-  const { Body, Title, Layout, Header, Footer } = await importTemplateComponents(templateName)
+  const { Body, Title, Layout, Footer } = await importTemplateComponents(templateName)
 
   if (!Body) {
     return
   }
   const { testData } = await importTestData(templateName)
 
-  const htmlRaw = renderToString(
-    <Layout title={<Title />} header={<Header />} content={<Body />} footer={<Footer />} />,
-  )
+  const htmlRaw = renderToString(<Layout title={<Title />} content={<Body />} footer={<Footer />} />)
 
   try {
     const html = htmlRaw
