@@ -1,56 +1,68 @@
 import React from 'react'
+import Card from '../../components/Card'
+import UnlessVariable from '../../helpers/UnlessVariable'
 import Variable from '../../helpers/Variable'
-import ButtonConfirm from '../../shared/ButtonConfirm'
-import IfVariable from '../../helpers/IfVariable'
-import Paragraph from '../../shared/Paragraph'
+import Paragraph from '../../components/Paragraph'
+import RequesterInfo from '../../components/RequesterInfo'
+import Spacer from '../../components/Spacer'
 import Each from '../../helpers/Each'
-import BottomText from '../../shared/BottomText'
-import MarketingLayout from '../../shared/MarketingLayout'
-import MarketingHeader from '../../shared/MarketingHeader'
-import MarketingFooter from '../../shared/MarketingFooter'
+import IfLocale from '../../helpers/IfLocale'
+import IfVariable from '../../helpers/IfVariable'
+import AboutTenera from '../../components/AboutTenera'
+import LayoutHtml from '../../layouts/LayoutHtml'
+import FooterClassic from '../../layouts/FooterClassic'
 
-export const Layout = MarketingLayout
-export const Header = MarketingHeader
-export const Footer = MarketingFooter
+export const Layout = LayoutHtml
+export const Footer = FooterClassic
 
 const Body = () => (
   <>
-    <div className="section intro" style={{ padding: '10px' }}>
-      <table width="100%">
-        <tbody>
-          <div>
-            <p>Hallo,</p>
-            <p>
-              <Variable name="companyName" /> hat neue Bescheinigungen hochgeladen. Indem Sie auf “Bescheinigungen
-              einsehen” klicken, können Sie alle Bescheinigungen ansehen und überprüfen.
-            </p>
-            <ButtonConfirm title="Bescheinigungen prüfen" hrefValue="{{certificateProposalUrl}}" />
-            <br />
-            <br />
-            <br />
-            <Paragraph title="Kürzlich eingereicht Bescheinigungen">
-              <ul>
-                <IfVariable name="certificateProposals">
-                  <Each iterator="certificateProposals">
-                    <li>
-                      <a
-                        href="{{this.certificateProposalUrl}}"
-                        style={{
-                          color: 'black',
-                        }}
-                      >
-                        <Variable name="this.filename" />
-                      </a>
-                    </li>
-                  </Each>
-                </IfVariable>
-              </ul>
-            </Paragraph>
-          </div>
-        </tbody>
-      </table>
-    </div>
-    <BottomText />
+    <Card
+      title="{{companyName}} hat Bescheinigungen hochgeladen."
+      ctaButtonTitle="Bescheinigungen prüfen"
+      ctaButtonUrl="{{certificateProposalUrl}}"
+    >
+      <UnlessVariable name="messageTemplate">
+        <p>Hallo,</p>
+        <p>
+          <Variable name="companyName" /> hat neue Bescheinigungen hochgeladen. Indem Sie auf “Bescheinigungen einsehen”
+          klicken, können Sie alle Bescheinigungen ansehen und überprüfen.
+        </p>
+
+        <Paragraph title="Kürzlich eingereicht Bescheinigungen">
+          <ul>
+            <IfVariable name="certificateProposals">
+              <Each iterator="certificateProposals">
+                <li>
+                  <a
+                    href="{{this.certificateProposalUrl}}"
+                    style={{
+                      color: 'black',
+                    }}
+                  >
+                    <Variable name="this.filename" />
+                  </a>
+                </li>
+              </Each>
+            </IfVariable>
+          </ul>
+        </Paragraph>
+      </UnlessVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <Card title={<IfLocale locale="de">Angefragte Bescheinigungen</IfLocale>}>
+      <IfVariable name="certificateTypeName">
+        <Paragraph>
+          <strong>{`{{certificateTypeName}}`}</strong>
+        </Paragraph>
+      </IfVariable>
+      <Variable name="messageTemplate" />
+    </Card>
+    <Spacer size={32} />
+    <RequesterInfo />
+    <Spacer size={32} />
+    <AboutTenera />
   </>
 )
 

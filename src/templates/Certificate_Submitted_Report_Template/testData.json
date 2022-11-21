@@ -13,5 +13,15 @@
       "filename": "test2.pdf",
       "certificateProposalUrl": "https://platform.dev.tenera.app/contacts/35570f57-0ad4-4a0a-9edd-80521bd878eb/?certificate-proposal-submission=bc422952-b8ce-4fcb-8ba6-9c9e43a91977&contactCompanyActiveTab=certificates"
     }
-  ]
+  ],
+  "requesterOrganizationName": "Generalbau GmbH",
+  "certificateTypeName": "Bescheinigung §13 UStG.",
+  "daysSinceRequest": "5",
+  "messageTemplate": "",
+  "requestCount": "1",
+  "certificateSubmissionUrl": "https://platform.dev.tenera.app/certificate-submission/?token=bWscf7s7M1lx2nGZM01otNk1Y6aW5TMuzL6rr11SM9anRjKaz5H4Abl6DzLJ8EQy",
+  "requesterName": "Marlene Schmidt",
+  "requesterPosition": "Bauleitung",
+  "requesterPhone": "+49812345678-12",
+  "requesterEmail": "marleneschmidt@generalbau.com"
 }
